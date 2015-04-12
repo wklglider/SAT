@@ -15,6 +15,7 @@ public class welcomeActivity extends ActionBarActivity {
     int level = 0;
 
     public void startGame(View view) {
+
         Intent newGame = new Intent(this,gameActivity.class);
         newGame.putExtra("level",level);
         newGame.putExtra("name",name);
