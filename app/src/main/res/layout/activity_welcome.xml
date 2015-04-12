@@ -107,7 +107,7 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Normal (0~20)"
+            android:text="Medium (0~20)"
             android:id="@+id/operation_radioButton2"
             android:checked="false"
             android:layout_below="@+id/operation_radioButton1"

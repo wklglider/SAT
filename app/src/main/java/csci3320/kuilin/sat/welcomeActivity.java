@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 
 public class welcomeActivity extends ActionBarActivity {
@@ -15,6 +16,8 @@ public class welcomeActivity extends ActionBarActivity {
     int level = 0;
 
     public void startGame(View view) {
+        TextView txtView = (TextView) findViewById(R.id.player_name_editText);
+        name = txtView.getText().toString();
 
         Intent newGame = new Intent(this,gameActivity.class);
         newGame.putExtra("level",level);
