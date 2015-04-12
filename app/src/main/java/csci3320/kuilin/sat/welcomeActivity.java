@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 
@@ -18,12 +19,27 @@ public class welcomeActivity extends ActionBarActivity {
     public void startGame(View view) {
         TextView txtView = (TextView) findViewById(R.id.player_name_editText);
         name = txtView.getText().toString();
-
+        level = getLevel();
         Intent newGame = new Intent(this,gameActivity.class);
         newGame.putExtra("level",level);
         newGame.putExtra("name",name);
 
         startActivity(newGame);
+    }
+
+    private int getLevel(){
+        int level =0;
+
+        //get operation radio button that is checked
+        RadioGroup operationGroup = (RadioGroup)findViewById(R.id.operation_groupbuttons);
+        int operationID = operationGroup.getCheckedRadioButtonId();
+
+        //get operand radio button that is checked
+        RadioGroup operandGroup = (RadioGroup)findViewById(R.id.operand_groupbuttons);
+        int operandID = operandGroup.getCheckedRadioButtonId();
+
+
+        return level;
     }
 
     public void showScores(View view) {

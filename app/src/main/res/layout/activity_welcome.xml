@@ -63,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+ -"
-            android:id="@+id/operaiton_radioButton"
+            android:id="@+id/operaiton_radioButton1"
             android:layout_alignBottom="@+id/operation_textView"
             android:layout_alignLeft="@+id/player_name_editText"
             android:layout_alignStart="@+id/player_name_editText"
@@ -91,15 +91,16 @@
         android:layout_marginTop="10dp" />
 
     <RadioGroup
+        android:id="@+id/operand_groupbuttons"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
-        android:id="@+id/operand_groupbuttons">
+
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Easy (0~9)"
-            android:id="@+id/operation_radioButton1"
+            android:id="@+id/operand_radioButton1"
             android:layout_alignBottom="@+id/operation_level_textView"
             android:layout_centerHorizontal="true"
             android:checked="true" />
@@ -108,7 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Medium (0~20)"
-            android:id="@+id/operation_radioButton2"
+            android:id="@+id/operand_radioButton2"
             android:checked="false"
             android:layout_below="@+id/operation_radioButton1"
             android:layout_alignLeft="@+id/operation_radioButton1"
@@ -118,7 +119,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hard (0~50)"
-            android:id="@+id/operation_radioButton3"
+            android:id="@+id/operand_radioButton3"
             android:layout_below="@+id/operation_radioButton2"
             android:layout_alignLeft="@+id/operation_radioButton2"
             android:layout_alignStart="@+id/operation_radioButton2"
@@ -132,7 +133,7 @@
         android:text="@string/start"
         android:id="@+id/start_button"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/operand_groupbuttons"
+        android:layout_below="@+id/operation_radioButton2"
         android:layout_centerHorizontal="true"
         android:onClick="startGame"
         android:layout_gravity="center_horizontal" />
