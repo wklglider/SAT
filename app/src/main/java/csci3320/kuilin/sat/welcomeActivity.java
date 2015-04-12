@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class welcomeActivity extends ActionBarActivity {
@@ -13,7 +14,7 @@ public class welcomeActivity extends ActionBarActivity {
     String name = "";
     int level = 0;
 
-    public void startGame() {
+    public void startGame(View view) {
         Intent newGame = new Intent(this,gameActivity.class);
         newGame.putExtra("level",level);
         newGame.putExtra("name",name);
