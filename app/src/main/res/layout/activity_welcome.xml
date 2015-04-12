@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:text="Operation Option"
         android:id="@+id/operation_textView"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/player_name_editText"
         android:layout_toLeftOf="@+id/player_name_editText"
         android:layout_toStartOf="@+id/player_name_editText" />
@@ -88,7 +88,7 @@
         android:layout_below="@+id/operation_groupbuttons"
         android:layout_alignLeft="@+id/operation_textView"
         android:layout_alignStart="@+id/operation_textView"
-        android:layout_marginTop="33dp" />
+        android:layout_marginTop="10dp" />
 
     <RadioGroup
         android:layout_width="fill_parent"
@@ -131,7 +131,7 @@
         android:layout_height="wrap_content"
         android:text="@string/start"
         android:id="@+id/start_button"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/operand_groupbuttons"
         android:layout_centerHorizontal="true"
         android:onClick="startGame"
