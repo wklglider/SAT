@@ -1,5 +1,6 @@
 package csci3320.kuilin.sat;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,6 +8,18 @@ import android.view.MenuItem;
 
 
 public class welcomeActivity extends ActionBarActivity {
+
+    //variables pass to the main game
+    String name = "";
+    int level = 0;
+
+    public void startGame() {
+        Intent newGame = new Intent(this,gameActivity.class);
+        newGame.putExtra("level",level);
+        newGame.putExtra("name",name);
+
+        startActivity(newGame);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -131,7 +131,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignLeft="@+id/score_editText"
         android:layout_alignStart="@+id/score_editText"
-        android:text="??" />
+        android:text="something" />
 
     <Button
         android:layout_width="100dp"
@@ -258,5 +258,13 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/result_editText"
         android:layout_alignEnd="@+id/result_editText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_alignTop="@+id/equal_textView"
+        android:layout_alignRight="@+id/button6"
+        android:layout_alignEnd="@+id/button6" />
 
 </RelativeLayout>
