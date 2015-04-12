@@ -4,9 +4,139 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="csci3320.kuilin.sat.welcomeActivity">
+    tools:context="csci3320.kuilin.sat.welcomeActivity"
+    android:id="@+id/game">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TextView android:text="@string/title_abbreviation" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/title_abbreviation"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/title_full"
+        android:layout_below="@+id/title_abbreviation"
+        android:layout_centerHorizontal="true"
+        android:text="@string/title_full" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Player"
+        android:id="@+id/new_player_textView"
+        android:layout_below="@+id/title_full"
+        android:layout_alignLeft="@+id/title_full"
+        android:layout_alignStart="@+id/title_full"
+        android:layout_marginTop="24dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/player_name_editText"
+        android:text="Enter your name"
+        android:layout_below="@+id/title_full"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Operation Option"
+        android:id="@+id/operation_textView"
+        android:layout_marginTop="23dp"
+        android:layout_below="@+id/player_name_editText"
+        android:layout_toLeftOf="@+id/player_name_editText"
+        android:layout_toStartOf="@+id/player_name_editText" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+ -"
+        android:id="@+id/operaiton_radioButton"
+        android:layout_alignBottom="@+id/operation_textView"
+        android:layout_alignLeft="@+id/player_name_editText"
+        android:layout_alignStart="@+id/player_name_editText"
+        android:checked="true" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+ - * /"
+        android:id="@+id/operaiton_radioButton2"
+        android:layout_below="@+id/operaiton_radioButton"
+        android:layout_alignLeft="@+id/operaiton_radioButton"
+        android:layout_alignStart="@+id/operaiton_radioButton"
+        android:checked="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Operation Level"
+        android:id="@+id/operation_level_textView"
+        android:layout_below="@+id/operaiton_radioButton2"
+        android:layout_alignLeft="@+id/operation_textView"
+        android:layout_alignStart="@+id/operation_textView"
+        android:layout_marginTop="33dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Easy (0~9)"
+        android:id="@+id/operation_radioButton1"
+        android:layout_alignBottom="@+id/operation_level_textView"
+        android:layout_centerHorizontal="true"
+        android:checked="true" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Normal (0~20)"
+        android:id="@+id/operation_radioButton2"
+        android:checked="false"
+        android:layout_below="@+id/operation_radioButton1"
+        android:layout_alignLeft="@+id/operation_radioButton1"
+        android:layout_alignStart="@+id/operation_radioButton1" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hard (0~50)"
+        android:id="@+id/operation_radioButton3"
+        android:layout_below="@+id/operation_radioButton2"
+        android:layout_alignLeft="@+id/operation_radioButton2"
+        android:layout_alignStart="@+id/operation_radioButton2"
+        android:checked="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start"
+        android:id="@+id/start_button"
+        android:layout_marginTop="34dp"
+        android:layout_below="@+id/operation_radioButton3"
+        android:layout_centerHorizontal="true"
+        android:onClick="startGame" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rank"
+        android:id="@+id/rank_button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/help"
+        android:id="@+id/help_button"
+        android:layout_alignBottom="@+id/rank_button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
