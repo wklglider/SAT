@@ -140,19 +140,22 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/rank"
-        android:id="@+id/rank_button"
+        android:text="@string/scores"
+        android:id="@+id/scores_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:longClickable="false"
+        android:onClick="showScores" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/help"
         android:id="@+id/help_button"
-        android:layout_alignBottom="@+id/rank_button"
+        android:layout_alignBottom="@+id/scores_button"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="getHelp" />
 
 </LinearLayout>
