@@ -1,17 +1,30 @@
 package csci3320.kuilin.sat;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 public class gameActivity extends ActionBarActivity {
+
+    public String name;
+    public int level;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        //Get info from welcome activity
+        Intent i = getIntent();
+        name = i.getStringExtra("name");
+        level = i.getIntExtra("level", 0);
+
+        //Toast.makeText(this, "Name: " + name, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Level: " + level, Toast.LENGTH_SHORT).show();
     }
 
 

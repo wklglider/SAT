@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -28,7 +29,7 @@ public class welcomeActivity extends ActionBarActivity {
     }
 
     private int getLevel(){
-        int level =0;
+        int level = 0;
 
         //get operation radio button that is checked
         RadioGroup operationGroup = (RadioGroup)findViewById(R.id.operation_groupbuttons);
@@ -38,6 +39,35 @@ public class welcomeActivity extends ActionBarActivity {
         RadioGroup operandGroup = (RadioGroup)findViewById(R.id.operand_groupbuttons);
         int operandID = operandGroup.getCheckedRadioButtonId();
 
+        if(operationID == R.id.operaiton_radioButton1)
+        {
+            switch(operandID){
+                case R.id.operand_radioButton1:
+                    level = 1;
+                    break;
+                case R.id.operand_radioButton2:
+                    level = 2;
+                    break;
+                case R.id.operand_radioButton3:
+                    level = 3;
+                    break;
+            }
+
+        }
+        else if(operationID == R.id.operaiton_radioButton2)
+        {
+            switch(operandID){
+                case R.id.operand_radioButton1:
+                    level = 4;
+                    break;
+                case R.id.operand_radioButton2:
+                    level = 5;
+                    break;
+                case R.id.operand_radioButton3:
+                    level = 6;
+                    break;
+            }
+        }
 
         return level;
     }

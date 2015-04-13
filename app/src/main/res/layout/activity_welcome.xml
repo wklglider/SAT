@@ -39,9 +39,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/player_name_editText"
-        android:text="Enter your name"
         android:layout_below="@+id/title_full"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:autoText="false"
+        android:hint="Enter your name" />
 
     <TextView
         android:layout_width="wrap_content"
