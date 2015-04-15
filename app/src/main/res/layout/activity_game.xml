@@ -42,12 +42,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/score_editText"
-        android:text="66"
-        android:layout_marginRight="39dp"
-        android:layout_marginEnd="39dp"
+        android:text="6666"
         android:layout_alignTop="@+id/timer_editText"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_toLeftOf="@+id/editText"
+        android:layout_toStartOf="@+id/editText" />
 
     <Button
         android:layout_width="wrap_content"
