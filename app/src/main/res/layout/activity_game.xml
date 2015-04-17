@@ -8,60 +8,49 @@
     <TextView android:text="@string/timer" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/timer"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="42dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_above="@+id/button_shape1"
+        android:layout_alignLeft="@+id/num_button_7"
+        android:layout_alignStart="@+id/num_button_7" />
 
     <TextView
         android:text="@string/score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/score"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_alignBottom="@+id/score_editText"
-        android:layout_toRightOf="@+id/timer_editText"
-        android:layout_toEndOf="@+id/timer_editText" />
+        android:layout_alignBottom="@+id/timer_editText"
+        android:layout_alignRight="@+id/second_shape_textView"
+        android:layout_alignEnd="@+id/second_shape_textView" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/timer_editText"
-        android:layout_marginLeft="38dp"
-        android:layout_marginStart="38dp"
         android:text="00:00:00"
-        android:layout_alignBaseline="@+id/timer"
-        android:layout_alignBottom="@+id/timer"
-        android:layout_toRightOf="@+id/timer"
-        android:layout_toEndOf="@+id/timer" />
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/button_shape1"
+        android:layout_alignEnd="@+id/button_shape1" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/score_editText"
-        android:text="66"
-        android:layout_marginRight="39dp"
-        android:layout_marginEnd="39dp"
+        android:text="6666"
         android:layout_alignTop="@+id/timer_editText"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_toLeftOf="@+id/editText"
+        android:layout_toStartOf="@+id/editText" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:text="New Button"
         android:id="@+id/button_shape1"
-        android:layout_marginTop="22dp"
         android:layout_below="@+id/timer_editText"
         android:layout_toRightOf="@+id/timer"
         android:layout_toEndOf="@+id/timer" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:text="New Button"
         android:id="@+id/button_shape2"
         android:layout_alignBottom="@+id/button_shape1"
@@ -69,8 +58,8 @@
         android:layout_toEndOf="@+id/timer_editText" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:text="New Button"
         android:id="@+id/button_shape3"
         android:layout_below="@+id/button_shape1"
@@ -78,8 +67,8 @@
         android:layout_alignStart="@+id/button_shape1" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:text="New Button"
         android:id="@+id/button_shape4"
         android:layout_alignTop="@+id/button_shape3"
@@ -91,10 +80,10 @@
         android:layout_height="wrap_content"
         android:text="First Shape"
         android:id="@+id/first_shape_textView"
+        android:layout_marginTop="26dp"
         android:layout_below="@+id/button_shape3"
-        android:layout_alignLeft="@+id/timer"
-        android:layout_alignStart="@+id/timer"
-        android:layout_marginTop="27dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -126,13 +115,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/result_editText"
-        android:layout_alignTop="@+id/equal_textView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/equal_textView"
         android:layout_alignLeft="@+id/score_editText"
+<<<<<<< HEAD
         android:layout_alignStart="@+id/score_editText"
         android:hint="Answer"
         android:textSize="16dp" />
+=======
+        android:hint="Answer" />
+>>>>>>> origin/master
 
     <Button
         android:layout_width="100dp"
@@ -148,9 +139,9 @@
         android:layout_height="40dp"
         android:text="8"
         android:id="@+id/num_button_8"
-        android:layout_alignBottom="@+id/num_button_7"
-        android:layout_alignRight="@+id/score"
-        android:layout_alignEnd="@+id/score" />
+        android:layout_alignTop="@+id/num_button_7"
+        android:layout_toRightOf="@+id/num_button_7"
+        android:layout_toEndOf="@+id/num_button_7" />
 
     <Button
         android:layout_width="100dp"
@@ -256,9 +247,9 @@
         android:layout_height="40dp"
         android:text="HELP"
         android:id="@+id/help_button"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/result_editText"
-        android:layout_alignEnd="@+id/result_editText" />
+        android:layout_alignTop="@+id/home_button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
