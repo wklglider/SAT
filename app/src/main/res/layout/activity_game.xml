@@ -117,13 +117,9 @@
         android:id="@+id/result_editText"
         android:layout_alignBottom="@+id/equal_textView"
         android:layout_alignLeft="@+id/score_editText"
-<<<<<<< HEAD
         android:layout_alignStart="@+id/score_editText"
         android:hint="Answer"
         android:textSize="16dp" />
-=======
-        android:hint="Answer" />
->>>>>>> origin/master
 
     <Button
         android:layout_width="100dp"
