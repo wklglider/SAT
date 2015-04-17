@@ -131,7 +131,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignLeft="@+id/score_editText"
         android:layout_alignStart="@+id/score_editText"
-        android:text="something" />
+        android:hint="Answer"
+        android:textSize="16dp" />
 
     <Button
         android:layout_width="100dp"
@@ -263,6 +264,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
+        android:inputType="numberDecimal"
         android:layout_alignTop="@+id/equal_textView"
         android:layout_alignRight="@+id/num_button_9"
         android:layout_alignEnd="@+id/num_button_9" />

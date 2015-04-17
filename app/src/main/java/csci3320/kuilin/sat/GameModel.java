@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Random;
 
 import csci3320.kuilin.sat.Shape;
+import csci3320.kuilin.sat.Operation;
 
 /**
  * Created by Kirk Karavouzis on 4/13/2015.
@@ -18,6 +19,7 @@ public class GameModel {
     private int totalPoints;
     private int level;
     private ArrayList<Shape> shapes;
+    private ArrayList<Operation> operations;
 
 
     //----------------------Constructors--------------
@@ -64,11 +66,11 @@ public class GameModel {
     // private Shape shapes[] = {square,triangle,circle,rectangle,oval,pentagon,octagon,star};
      {
         Shape square = new Shape("Square",R.drawable.square);
-        Shape triangle = new Shape("Triangle",R.drawable.square);;
-        Shape circle = new Shape("Circle",R.drawable.square);;
-        Shape rectangle = new Shape("Rectangle",R.drawable.square);;
-        Shape oval = new Shape("Oval",R.drawable.square);;
-        Shape pentagon = new Shape("Pentagon",R.drawable.square);;
+        Shape triangle = new Shape("Triangle",R.drawable.triangle);;
+        Shape circle = new Shape("Circle",R.drawable.circle);;
+        Shape rectangle = new Shape("Rectangle",R.drawable.rectangle);;
+        Shape oval = new Shape("Oval",R.drawable.oval);;
+        Shape pentagon = new Shape("Pentagon",R.drawable.pentagon);;
         Shape octagon = new Shape("Octagon",R.drawable.square);;
         Shape star = new Shape("Star",R.drawable.square);;
 
@@ -92,9 +94,21 @@ public class GameModel {
     private Shape star;*/
 
     //Array of math symbols
-    private String operations[] = {"+","-","/","*"};
+    //private String operations[] = {"+","-","/","*"};
+    {
+        Operation multiply = new Operation("multiply", R.drawable.multiply, "*");
+        Operation divide = new Operation("divide", R.drawable.divide, "/");
+        Operation add = new Operation("add", R.drawable.add, "+");
+        Operation subtract = new Operation("subtract", R.drawable.subtract, "-");
 
-    
+        operations = new ArrayList<Operation>();
+
+        operations.add(add);
+        operations.add(subtract);
+        operations.add(multiply);
+        operations.add(divide);
+
+    }
     //------------Round Start Helper Methods-----------------
 
     //Random number generator
@@ -134,7 +148,7 @@ public class GameModel {
     }
 
     //Math symbol selector
-    public String GetOperator(){
+    public Operation GetOperator(){
         long seed = System.currentTimeMillis();
         Random generator = new Random(seed);
 
@@ -142,14 +156,14 @@ public class GameModel {
             case 1:
             case 2:
             case 3:
-                return operations[generator.nextInt(1)];
+                return operations.get(generator.nextInt(1));
             case 4:
             case 5:
             case 6:
-                return operations[generator.nextInt(3)];
+                return operations.get(generator.nextInt(3));
 
         }
-        return "";
+        return null;
     }
 
 
