@@ -34,10 +34,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/score_editText"
-        android:text="6666"
         android:layout_alignTop="@+id/timer_editText"
         android:layout_toLeftOf="@+id/editText"
-        android:layout_toStartOf="@+id/editText" />
+        android:layout_toStartOf="@+id/editText"
+        android:hint="score" />
 
     <Button
         android:layout_width="100dp"

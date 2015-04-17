@@ -66,11 +66,11 @@ public class GameModel {
     // private Shape shapes[] = {square,triangle,circle,rectangle,oval,pentagon,octagon,star};
      {
         Shape square = new Shape("Square",R.drawable.square);
-        Shape triangle = new Shape("Triangle",R.drawable.square);;
-        Shape circle = new Shape("Circle",R.drawable.square);;
-        Shape rectangle = new Shape("Rectangle",R.drawable.square);;
-        Shape oval = new Shape("Oval",R.drawable.square);;
-        Shape pentagon = new Shape("Pentagon",R.drawable.square);;
+        Shape triangle = new Shape("Triangle",R.drawable.triangle);;
+        Shape circle = new Shape("Circle",R.drawable.circle);;
+        Shape rectangle = new Shape("Rectangle",R.drawable.rectangle);;
+        Shape oval = new Shape("Oval",R.drawable.oval);;
+        Shape pentagon = new Shape("Pentagon",R.drawable.pentagon);;
         Shape octagon = new Shape("Octagon",R.drawable.square);;
         Shape star = new Shape("Star",R.drawable.square);;
 
@@ -81,20 +81,11 @@ public class GameModel {
         shapes.add(rectangle);
         shapes.add(oval);
         shapes.add(pentagon);
-        shapes.add(octagon);
-        shapes.add(star);
+       //shapes.add(octagon);
+       //shapes.add(star);
     }
-    /*private Shape square = new Shape("Square",R.drawable.square);
-    private Shape triangle;
-    private Shape circle;
-    private Shape rectangle;
-    private Shape oval;
-    private Shape pentagon;
-    private Shape octagon;
-    private Shape star;*/
 
     //Array of math symbols
-    //private String operations[] = {"+","-","/","*"};
     {
         Operation multiply = new Operation("multiply", R.drawable.multiply, "*");
         Operation divide = new Operation("divide", R.drawable.divide, "/");
@@ -112,23 +103,33 @@ public class GameModel {
     //------------Round Start Helper Methods-----------------
 
     //Random number generator
-    private int NumberGen(){
+    private int[] NumberGen(){
         long seed = System.currentTimeMillis();
         Random generator = new Random(seed);
+        int[] numbers = new int[4];
 
         switch(level){
             case 1:
             case 4:
-                return generator.nextInt(9);
+                for(int i=0;i < 4; ++i){
+                numbers[i]=generator.nextInt(9);
+                }
+                break;
             case 2:
             case 5:
-                return generator.nextInt(20);
+                for(int i=0;i < 4; ++i){
+                    numbers[i]=generator.nextInt(20);
+                }
+                break;
             case 3:
             case 6:
-                return generator.nextInt(50);
+                for(int i=0;i < 4; ++i){
+                    numbers[i]=generator.nextInt(50);
+                }
+                break;
 
         }
-        return -1;
+        return numbers;
     }
 
     //Shape selector
@@ -138,10 +139,13 @@ public class GameModel {
        //shuffle the shapes list
         Collections.shuffle(shapes);
 
+        //Get some numbers
+        int n[];
+        n = NumberGen();
         //select shapes and assign random numbers
         for(int i=0; i < 4; ++i){
             s[i] = shapes.get(i);
-            s[i].SetNumber(NumberGen());
+            s[i].SetNumber(n[i]);
         }
 
         return s;
