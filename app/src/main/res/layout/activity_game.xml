@@ -115,10 +115,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/result_editText"
-        android:text="answer"
         android:layout_alignBottom="@+id/equal_textView"
         android:layout_alignLeft="@+id/score_editText"
-        android:layout_alignStart="@+id/score_editText" />
+        android:hint="Answer" />
 
     <Button
         android:layout_width="100dp"
@@ -250,6 +249,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
+        android:inputType="numberDecimal"
         android:layout_alignTop="@+id/equal_textView"
         android:layout_alignRight="@+id/num_button_9"
         android:layout_alignEnd="@+id/num_button_9" />
