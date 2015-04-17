@@ -10,7 +10,9 @@ public class Operation {
     private String op;
 
     Operation(String _name, int imageResource, String operation){
-
+        name = _name;
+        operationImage = imageResource;
+        op = operation;
     }
 
     //property getters and setters

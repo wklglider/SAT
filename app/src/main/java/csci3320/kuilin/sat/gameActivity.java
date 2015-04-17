@@ -81,7 +81,10 @@ public class gameActivity extends ActionBarActivity {
             grid[i].setText(String.valueOf(sh[i].GetNumber()));
         }
 
-        txtOperand1.setText("");
+        txtOperand1.setText(sh[shape1].GetName());
+        txtOperation.setText(op.GetOperator());
+        txtOperand2.setText(sh[shape2].GetName());
+
 
     }
 

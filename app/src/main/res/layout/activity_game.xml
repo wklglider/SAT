@@ -37,7 +37,11 @@
         android:layout_alignTop="@+id/timer_editText"
         android:layout_toLeftOf="@+id/editText"
         android:layout_toStartOf="@+id/editText"
-        android:hint="score" />
+        android:hint="0"
+        android:editable="false"
+        android:inputType="number"
+        android:textStyle="bold"
+        android:enabled="false" />
 
     <Button
         android:layout_width="100dp"
