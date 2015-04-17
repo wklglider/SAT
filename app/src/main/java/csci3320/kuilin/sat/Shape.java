@@ -5,9 +5,9 @@ package csci3320.kuilin.sat;
  */
 public class Shape {
 
-    public int number;
-    public String name;
-    public int shapeImage;
+    private int number;
+    private String name;
+    private int shapeImage;
 
     Shape(){
         number = 0;
@@ -25,5 +25,30 @@ public class Shape {
         name = shapeName;
         shapeImage = imageResource;
         number = num;
+    }
+
+    //property getters and setters
+    public void SetNumber(int newNum){
+        number = newNum;
+    }
+
+    public int GetNumber(){
+        return number;
+    }
+
+    public void SetName(String newName){
+        name = newName;
+    }
+
+    public String GetName(){
+        return name;
+    }
+
+    public void SetImage(int newImageResource){
+        shapeImage = newImageResource;
+    }
+
+    public int GetImage(){
+        return shapeImage;
     }
 }
