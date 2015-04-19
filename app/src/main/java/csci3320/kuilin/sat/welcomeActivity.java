@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -28,7 +31,7 @@ public class welcomeActivity extends ActionBarActivity {
     }
 
     private int getLevel(){
-        int level =0;
+        int level = 0;
 
         //get operation radio button that is checked
         RadioGroup operationGroup = (RadioGroup)findViewById(R.id.operation_groupbuttons);
@@ -38,6 +41,35 @@ public class welcomeActivity extends ActionBarActivity {
         RadioGroup operandGroup = (RadioGroup)findViewById(R.id.operand_groupbuttons);
         int operandID = operandGroup.getCheckedRadioButtonId();
 
+        if(operationID == R.id.operaiton_radioButton1)
+        {
+            switch(operandID){
+                case R.id.operand_radioButton1:
+                    level = 1;
+                    break;
+                case R.id.operand_radioButton2:
+                    level = 2;
+                    break;
+                case R.id.operand_radioButton3:
+                    level = 3;
+                    break;
+            }
+
+        }
+        else if(operationID == R.id.operaiton_radioButton2)
+        {
+            switch(operandID){
+                case R.id.operand_radioButton1:
+                    level = 4;
+                    break;
+                case R.id.operand_radioButton2:
+                    level = 5;
+                    break;
+                case R.id.operand_radioButton3:
+                    level = 6;
+                    break;
+            }
+        }
 
         return level;
     }
@@ -58,10 +90,22 @@ public class welcomeActivity extends ActionBarActivity {
         startActivity(getHelp);
     }
 
+    EditText USER_NAME, USER_SCORE;
+    String user_name;
+    Button reg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+        USER_NAME = (EditText) findViewById(R.id.player_name_editText);
+        reg = (Button) findViewById(R.id.start_button);
+        reg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                user_name = USER_NAME.getText().toString();
+
+            }
+        });
     }
 
 
