@@ -98,14 +98,14 @@ public class welcomeActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         USER_NAME = (EditText) findViewById(R.id.player_name_editText);
-        reg = (Button) findViewById(R.id.start_button);
-        reg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                user_name = USER_NAME.getText().toString();
-
-            }
-        });
+//        reg = (Button) findViewById(R.id.start_button);
+//        reg.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                user_name = USER_NAME.getText().toString();
+//
+//            }
+//        });
     }
 
 
