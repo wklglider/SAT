@@ -24,7 +24,6 @@ public class welcomeActivity extends ActionBarActivity {
         name = txtView.getText().toString();
         level = getLevel();
         Intent newGame = new Intent(this,gameActivity.class);
-
         newGame.putExtra("level",level);
         newGame.putExtra("name",name);
 
