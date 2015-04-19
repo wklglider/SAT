@@ -1,6 +1,8 @@
 package csci3320.kuilin.sat;
 
 import android.content.Intent;
+import android.inputmethodservice.Keyboard;
+import android.inputmethodservice.KeyboardView;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -30,6 +32,9 @@ public class gameActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+
+
+        createKeyboard();
         //Get info from welcome activity
         Intent i = getIntent();
         name = i.getStringExtra("name");
@@ -110,6 +115,7 @@ public class gameActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+<<<<<<< HEAD
 //    public void timerCountDown (){
 //        TextView _tv = (TextView) findViewById( R.id.textView1 );
 //        new CountDownTimer(30000, 1000) { // adjust the milli seconds here
@@ -126,4 +132,20 @@ public class gameActivity extends ActionBarActivity {
 //            }
 //        }.start();
 //    }
+=======
+    public void createKeyboard(){
+        // Create the Keyboard
+        Keyboard mKeyboard= new Keyboard(this,R.xml.satkb);
+
+        // Lookup the KeyboardView
+        KeyboardView mKeyboardView= (KeyboardView)findViewById(R.id.keyboardview);
+        // Attach the keyboard to the view
+        mKeyboardView.setKeyboard( mKeyboard );
+        // Do not show the preview balloons
+        mKeyboardView.setPreviewEnabled(false);
+
+
+    }
+
+>>>>>>> origin/Kirk
 }
