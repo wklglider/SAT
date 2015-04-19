@@ -25,10 +25,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/timer_editText"
-        android:text="00:00:00"
+        android:editable="false"
+        android:enabled="false"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/button_shape1"
-        android:layout_alignEnd="@+id/button_shape1" />
+        android:layout_alignEnd="@+id/button_shape1"
+        android:hint="01:00:00" />
 
     <EditText
         android:layout_width="wrap_content"
