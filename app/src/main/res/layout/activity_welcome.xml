@@ -158,6 +158,6 @@
         android:layout_alignBottom="@+id/scores_button"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="getHelp" />
+        android:onClick="loadHelpPage" />
 
 </LinearLayout>

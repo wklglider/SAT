@@ -30,6 +30,11 @@ public class welcomeActivity extends ActionBarActivity {
         startActivity(newGame);
     }
 
+    public void loadHelpPage(View view) {
+        Intent help = new Intent(this,helpActivity.class);
+        startActivity(help);
+    }
+
     private int getLevel(){
         int level = 0;
 

@@ -240,7 +240,8 @@
         android:id="@+id/home_button"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/first_shape_textView"
-        android:layout_alignStart="@+id/first_shape_textView" />
+        android:layout_alignStart="@+id/first_shape_textView"
+        android:onClick="loadHomePage" />
 
     <Button
         android:layout_width="100dp"
@@ -249,7 +250,8 @@
         android:id="@+id/help_button"
         android:layout_alignTop="@+id/home_button"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="loadHelpPage" />
 
     <EditText
         android:layout_width="wrap_content"

@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -148,5 +149,15 @@ public class gameActivity extends ActionBarActivity {
         mKeyboardView.setPreviewEnabled(false);
 
 
+    }
+
+    public void loadHomePage(View view) {
+        Intent home = new Intent(this,welcomeActivity.class);
+        startActivity(home);
+    }
+
+    public void loadHelpPage(View view) {
+        Intent help = new Intent(this,helpActivity.class);
+        startActivity(help);
     }
 }
