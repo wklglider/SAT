@@ -3,6 +3,7 @@ package csci3320.kuilin.sat;
 import android.content.Intent;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
+import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import csci3320.kuilin.sat.Shape;
 import csci3320.kuilin.sat.Operation;
@@ -42,6 +44,8 @@ public class gameActivity extends ActionBarActivity {
 
         //Create new game and start the round
         round = new GameModel(level);
+
+        TimerCountDown();
         StartRound(round);
 
         //Toast.makeText(this, "Name: " + name, Toast.LENGTH_SHORT).show();
@@ -115,24 +119,23 @@ public class gameActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-<<<<<<< HEAD
-//    public void timerCountDown (){
-//        TextView _tv = (TextView) findViewById( R.id.textView1 );
-//        new CountDownTimer(30000, 1000) { // adjust the milli seconds here
-//
-//            public void onTick(long millisUntilFinished) {
-//                _tv.setText(""+String.format("%d min, %d sec",
-//                        TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
-//                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
-//                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
-//            }
-//
-//            public void onFinish() {
-//                _tv.setText("done!");
-//            }
-//        }.start();
-//    }
-=======
+    public void TimerCountDown (){
+        final EditText timer = (EditText) findViewById( R.id.timer_editText );
+        new CountDownTimer(60000, 50) { // adjust the milli seconds here
+
+            public void onTick(long millisUntilFinished) {
+                timer.setText(""+String.format("%02d : %02d",
+                        TimeUnit.MILLISECONDS.toSeconds( millisUntilFinished),
+                        TimeUnit.MILLISECONDS.toMillis(millisUntilFinished) -
+                                TimeUnit.SECONDS.toMillis(TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished))));
+            }
+
+            public void onFinish() {
+                timer.setText("Time up!");
+            }
+        }.start();
+    }
+
     public void createKeyboard(){
         // Create the Keyboard
         Keyboard mKeyboard= new Keyboard(this,R.xml.satkb);
@@ -146,6 +149,4 @@ public class gameActivity extends ActionBarActivity {
 
 
     }
-
->>>>>>> origin/Kirk
 }
