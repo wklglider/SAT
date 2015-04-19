@@ -66,13 +66,13 @@ public class GameModel {
     // private Shape shapes[] = {square,triangle,circle,rectangle,oval,pentagon,octagon,star};
      {
         Shape square = new Shape("Square",R.drawable.square);
-        Shape triangle = new Shape("Triangle",R.drawable.triangle);;
-        Shape circle = new Shape("Circle",R.drawable.circle);;
-        Shape rectangle = new Shape("Rectangle",R.drawable.rectangle);;
-        Shape oval = new Shape("Oval",R.drawable.oval);;
-        Shape pentagon = new Shape("Pentagon",R.drawable.pentagon);;
-        Shape octagon = new Shape("Octagon",R.drawable.square);;
-        Shape star = new Shape("Star",R.drawable.square);;
+        Shape triangle = new Shape("Triangle",R.drawable.triangle);
+        Shape circle = new Shape("Circle",R.drawable.circle);
+        Shape rectangle = new Shape("Rectangle",R.drawable.rectangle);
+        Shape oval = new Shape("Oval",R.drawable.oval);
+        Shape pentagon = new Shape("Pentagon",R.drawable.pentagon);
+        Shape octagon = new Shape("Octagon",R.drawable.square);
+        Shape star = new Shape("Star",R.drawable.square);
 
         shapes = new ArrayList<Shape>();
         shapes.add(square);

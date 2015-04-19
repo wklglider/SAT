@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
-    android:keyWidth="12.50%p"
-    android:keyHeight="10%p" >
+    android:keyWidth="25%p"
+    android:keyHeight="5%p" >
 
     <Row>
         <Key android:codes="55"    android:keyLabel="7" android:keyEdgeFlags="left" />
@@ -19,8 +19,8 @@
         <Key android:codes="51"    android:keyLabel="3" />
     </Row>
     <Row>
-        <Key android:codes="48"    android:keyLabel="0" android:keyWidth="25%p" android:horizontalGap="6.25%p" android:keyEdgeFlags="left" />
-        <Key android:codes="55000" android:keyLabel="PREV" android:horizontalGap="6.25%p" />
-        <Key android:codes="55005" android:keyLabel="NEXT" android:keyEdgeFlags="right" />
+        <Key android:codes="67"    android:keyLabel="DEL" android:keyEdgeFlags="left" />
+        <Key android:codes="39"    android:keyLabel="0"  />
+        <Key android:codes="10"    android:keyLabel="ENTER"  />
     </Row>
 </Keyboard>

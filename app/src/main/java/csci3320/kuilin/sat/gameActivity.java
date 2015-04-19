@@ -6,6 +6,7 @@ import android.inputmethodservice.KeyboardView;
 import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,6 +30,8 @@ public class gameActivity extends ActionBarActivity {
     public String name;
     public int level;
     public GameModel round;
+    public int result;
+    public String userResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,8 +149,76 @@ public class gameActivity extends ActionBarActivity {
         // Attach the keyboard to the view
         mKeyboardView.setKeyboard( mKeyboard );
         // Do not show the preview balloons
-        mKeyboardView.setPreviewEnabled(false);
 
+        // Install the key handler
+        mKeyboardView.setOnKeyboardActionListener(mOnKeyboardActionListener);
+
+    }
+
+    //create a keyboard action listener
+    private KeyboardView.OnKeyboardActionListener mOnKeyboardActionListener;
+    {
+        mOnKeyboardActionListener = new KeyboardView.OnKeyboardActionListener() {
+
+
+
+            @Override
+            public void onKey(int primaryCode, int[] keyCodes) {
+                //Get the EditText for response
+                EditText response = (EditText) findViewById(R.id.result_editText);
+                Editable editable = response.getText();
+
+                if(primaryCode==10) {
+                    userResult = response.getText().toString();
+                    response.setText("");
+                }
+                else if(primaryCode==67){
+                editable.delete(editable.length()-1,editable.length());
+                }
+                else{
+                    if(editable.length()<4) {
+                        //Enter user's input to response edittext
+                        int start = response.getSelectionStart();
+                        editable.insert(start, Character.toString((char) primaryCode));
+                    }
+                }
+            }
+
+            @Override
+            public void onText(CharSequence text) {
+
+            }
+
+            @Override
+            public void onPress(int primaryCode) {
+
+            }
+
+            @Override
+            public void onRelease(int primaryCode) {
+
+            }
+
+            @Override
+            public void swipeLeft() {
+
+            }
+
+            @Override
+            public void swipeRight() {
+
+            }
+
+            @Override
+            public void swipeDown() {
+
+            }
+
+            @Override
+            public void swipeUp() {
+
+            }
+        };
 
     }
 
