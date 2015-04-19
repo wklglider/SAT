@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -88,10 +90,22 @@ public class welcomeActivity extends ActionBarActivity {
         startActivity(getHelp);
     }
 
+    EditText USER_NAME, USER_SCORE;
+    String user_name;
+    Button reg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+        USER_NAME = (EditText) findViewById(R.id.player_name_editText);
+        reg = (Button) findViewById(R.id.start_button);
+        reg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                user_name = USER_NAME.getText().toString();
+
+            }
+        });
     }
 
 
