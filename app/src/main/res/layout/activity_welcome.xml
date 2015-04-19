@@ -25,108 +25,131 @@
         android:layout_centerHorizontal="true"
         android:text="@string/title_full" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Player"
-        android:id="@+id/new_player_textView"
-        android:layout_below="@+id/title_full"
-        android:layout_alignLeft="@+id/title_full"
-        android:layout_alignStart="@+id/title_full"
-        android:layout_marginTop="24dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/player_name_editText"
-        android:layout_below="@+id/title_full"
-        android:layout_centerHorizontal="true"
-        android:autoText="false"
-        android:hint="Enter your name" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Operation Option"
-        android:id="@+id/operation_textView"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/player_name_editText"
-        android:layout_toLeftOf="@+id/player_name_editText"
-        android:layout_toStartOf="@+id/player_name_editText" />
-
-    <RadioGroup
-        android:layout_width="251dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/operation_groupbuttons"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+ -"
-            android:id="@+id/operaiton_radioButton1"
-            android:layout_alignBottom="@+id/operation_textView"
-            android:layout_alignLeft="@+id/player_name_editText"
-            android:layout_alignStart="@+id/player_name_editText"
-            android:checked="true" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+ - * /"
-            android:id="@+id/operaiton_radioButton2"
-            android:layout_below="@+id/operaiton_radioButton"
-            android:layout_alignLeft="@+id/operaiton_radioButton"
-            android:layout_alignStart="@+id/operaiton_radioButton"
-            android:checked="false" />
-    </RadioGroup>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Operation Level"
-        android:id="@+id/operation_level_textView"
-        android:layout_below="@+id/operation_groupbuttons"
-        android:layout_alignLeft="@+id/operation_textView"
-        android:layout_alignStart="@+id/operation_textView"
-        android:layout_marginTop="10dp" />
-
-    <RadioGroup
-        android:id="@+id/operand_groupbuttons"
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
-        <RadioButton
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Easy (0~9)"
-            android:id="@+id/operand_radioButton1"
-            android:layout_alignBottom="@+id/operation_level_textView"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="New Player"
+            android:id="@+id/textVie_player" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/player_name_editText"
+            android:layout_below="@+id/title_full"
             android:layout_centerHorizontal="true"
-            android:checked="true" />
+            android:autoText="false"
+            android:hint="Enter your name" />
+    </LinearLayout>
 
-        <RadioButton
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Medium (0~20)"
-            android:id="@+id/operand_radioButton2"
-            android:checked="false"
-            android:layout_below="@+id/operation_radioButton1"
-            android:layout_alignLeft="@+id/operation_radioButton1"
-            android:layout_alignStart="@+id/operation_radioButton1" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Operation Option"
+            android:id="@+id/operation_textView"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/player_name_editText"
+            android:layout_toLeftOf="@+id/player_name_editText"
+            android:layout_toStartOf="@+id/player_name_editText" />
 
-        <RadioButton
+        <RadioGroup
+            android:layout_width="251dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/operation_groupbuttons"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+ -"
+                android:id="@+id/operaiton_radioButton1"
+                android:layout_alignBottom="@+id/operation_textView"
+                android:layout_alignLeft="@+id/player_name_editText"
+                android:layout_alignStart="@+id/player_name_editText"
+                android:checked="true" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+ - * /"
+                android:id="@+id/operaiton_radioButton2"
+                android:layout_below="@+id/operaiton_radioButton"
+                android:layout_alignLeft="@+id/operaiton_radioButton"
+                android:layout_alignStart="@+id/operaiton_radioButton"
+                android:checked="false" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hard (0~50)"
-            android:id="@+id/operand_radioButton3"
-            android:layout_below="@+id/operation_radioButton2"
-            android:layout_alignLeft="@+id/operation_radioButton2"
-            android:layout_alignStart="@+id/operation_radioButton2"
-            android:checked="false" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Operation Level"
+            android:id="@+id/operation_level_textView"
+            android:layout_below="@+id/operation_groupbuttons"
+            android:layout_alignLeft="@+id/operation_textView"
+            android:layout_alignStart="@+id/operation_textView"
+            android:layout_marginTop="10dp" />
 
-    </RadioGroup>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioGroup
+                android:id="@+id/operand_groupbuttons"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Easy (0~9)"
+                    android:id="@+id/operand_radioButton1"
+                    android:layout_alignBottom="@+id/operation_level_textView"
+                    android:layout_centerHorizontal="true"
+                    android:checked="true" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Medium (0~20)"
+                    android:id="@+id/operand_radioButton2"
+                    android:checked="false"
+                    android:layout_below="@+id/operation_radioButton1"
+                    android:layout_alignLeft="@+id/operation_radioButton1"
+                    android:layout_alignStart="@+id/operation_radioButton1" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hard (0~50)"
+                    android:id="@+id/operand_radioButton3"
+                    android:layout_below="@+id/operation_radioButton2"
+                    android:layout_alignLeft="@+id/operation_radioButton2"
+                    android:layout_alignStart="@+id/operation_radioButton2"
+                    android:checked="false" />
+
+            </RadioGroup>
+        </LinearLayout>
+    </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"
@@ -139,25 +162,32 @@
         android:onClick="startGame"
         android:layout_gravity="center_horizontal" />
 
-    <Button
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/scores"
-        android:id="@+id/scores_button"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:longClickable="false"
-        android:onClick="showScores" />
+        android:layout_gravity="center_horizontal">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/help"
-        android:id="@+id/help_button"
-        android:layout_alignBottom="@+id/scores_button"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="loadHelpPage" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/scores"
+            android:id="@+id/scores_button"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:longClickable="false"
+            android:onClick="showScores" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/help"
+            android:id="@+id/help_button"
+            android:layout_alignBottom="@+id/scores_button"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:onClick="loadHelpPage" />
+    </LinearLayout>
 
 </LinearLayout>
