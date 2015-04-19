@@ -8,9 +8,7 @@
     <TextView android:text="@string/timer" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/timer"
-        android:layout_above="@+id/button_shape1"
-        android:layout_alignLeft="@+id/num_button_7"
-        android:layout_alignStart="@+id/num_button_7" />
+        android:layout_above="@+id/button_shape1" />
 
     <TextView
         android:text="@string/score"
@@ -258,9 +256,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText"
         android:inputType="numberDecimal"
-        android:layout_alignTop="@+id/equal_textView"
-        android:layout_alignRight="@+id/num_button_9"
-        android:layout_alignEnd="@+id/num_button_9" />
+        android:layout_alignTop="@+id/equal_textView" />
 
     <android.inputmethodservice.KeyboardView
         android:id="@+id/keyboardview"
@@ -269,7 +265,6 @@
         android:visibility="visible"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/button_back"
         android:layout_below="@+id/first_shape_textView" />
 
 
