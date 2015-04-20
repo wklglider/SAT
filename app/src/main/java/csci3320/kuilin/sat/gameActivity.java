@@ -1,5 +1,7 @@
 package csci3320.kuilin.sat;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
@@ -29,76 +31,107 @@ public class gameActivity extends ActionBarActivity {
 
     public String name;
     public int level;
-    public GameModel round;
+    public GameModel newGame;
     public int result;
-    public String userResult;
+    public int userResult;
+    boolean startNextRound;
+    Button[] grid = new Button[4]; //game grid
+    TextView txtOperand1;
+    TextView txtOperand2;
+    TextView txtOperation;
+    EditText txtScore;
+    EditText timer;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-
-
+        //add custom keyboard to layout
         createKeyboard();
         //Get info from welcome activity
         Intent i = getIntent();
         name = i.getStringExtra("name");
         level = i.getIntExtra("level", 0);
 
-        //Create new game and start the round
-        round = new GameModel(level);
 
-        TimerCountDown();
-        StartRound(round);
-
-        //Toast.makeText(this, "Name: " + name, Toast.LENGTH_SHORT).show();
-        //Toast.makeText(this, "Level: " + level, Toast.LENGTH_SHORT).show();
-    }
-
-    public void StartRound(GameModel gm)
-    {
         //get game grid to work on
-        Button[] grid = new Button[4];
         grid[0] = (Button)findViewById(R.id.button_shape1);
         grid[1] = (Button)findViewById(R.id.button_shape2);
         grid[2] = (Button)findViewById(R.id.button_shape3);
         grid[3] = (Button)findViewById(R.id.button_shape4);
 
         //get labels and other views needed for game
-        TextView txtOperand1 = (TextView)findViewById(R.id.first_shape_textView);
-        TextView txtOperand2 = (TextView)findViewById(R.id.second_shape_textView);
-        TextView txtOperation = (TextView)findViewById(R.id.operator_textView);
-        EditText txtScore = (EditText)findViewById(R.id.score_editText);
+        txtOperand1 = (TextView)findViewById(R.id.first_shape_textView);
+        txtOperand2 = (TextView)findViewById(R.id.second_shape_textView);
+        txtOperation = (TextView)findViewById(R.id.operator_textView);
+        txtScore = (EditText)findViewById(R.id.score_editText);
+        timer = (EditText) findViewById( R.id.timer_editText );
+
+        //start a new game
+        StartNewGame();
+
+        //Create an alert for end of game
+
+        //Toast.makeText(this, "Level: " + level, Toast.LENGTH_SHORT).show();
+    }
+
+    public void StartNewGame()
+    {
+        //create new game
+        newGame = new GameModel(level);
+
+        //start the countdown timer and start the round
+        TimerCountDown();
+        startNextRound = true;
+        NextRound(newGame);
+    }
+
+    public void NextRound(GameModel gm){
+        if(startNextRound) {
+            //reset boolean for next round
+            startNextRound=false;
+
+            //Get shapes and operation
+            Shape[] sh = gm.GetShapes();
+            Operation op = gm.GetOperator();
+
+            //Randomly select the shapes that will be used for the expression to be evaluated
+            //calculate the result
+            long seed = System.currentTimeMillis();
+            Random gen = new Random(seed);
+            int shape1 = gen.nextInt(4);
+            int shape2 = gen.nextInt(4);
+            while (shape1 == shape2) {
+                shape2 = gen.nextInt(4);
+            }
+
+            //validate the numbers to prevent negative numbers or math errors
+            String operator = op.GetName();
+            if(operator == "subtract" || operator == "divide") {
+                if(sh[shape1].GetNumber()<sh[shape2].GetNumber()){
+                    int temp = shape1;
+                    shape1 = shape2;
+                    shape2 = temp;
+                }
+            }
+            //calculate the correct result
+            result = gm.Calculate(sh[shape1],sh[shape2],op);
+
+            //Populate grid with shapes, display current expression to user
+            for (int i = 0; i < 4; ++i) {
+                grid[i].setBackgroundResource(sh[i].GetImage());
+                grid[i].setText(String.valueOf(sh[i].GetNumber()));
+            }
+
+            txtOperand1.setText(sh[shape1].GetName());
+            txtOperation.setText(op.GetOperator());
+            txtOperand2.setText(sh[shape2].GetName());
 
 
-        //Get shapes and operation
-        Shape[] sh = gm.GetShapes();
-        Operation op = gm.GetOperator();
-
-        //Randomly select the shapes that will be used for the expression to be evaluated
-        //calculate the result
-        long seed = System.currentTimeMillis();
-        Random gen = new Random(seed);
-        int shape1 = gen.nextInt(4);
-        int shape2 = gen.nextInt(4);
-        while(shape1 == shape2){
-            shape2 = gen.nextInt(4);
         }
-
-       
-
-        //Populate grid with shapes, display current expression to user
-        for(int i=0; i < 4;++i) {
-            grid[i].setBackgroundResource(sh[i].GetImage());
-            grid[i].setText(String.valueOf(sh[i].GetNumber()));
-        }
-
-        txtOperand1.setText(sh[shape1].GetName());
-        txtOperation.setText(op.GetOperator());
-        txtOperand2.setText(sh[shape2].GetName());
-
-
     }
 
     @Override
@@ -135,9 +168,49 @@ public class gameActivity extends ActionBarActivity {
             }
 
             public void onFinish() {
+                endGame();
                 timer.setText("Time up!");
             }
         }.start();
+    }
+
+    public void addPoints(){
+        newGame.AddPoints();
+        txtScore.setText(Integer.toString(newGame.GetTotalPoints()));
+    }
+
+    public void endGame(){
+        //clean up variables
+        txtScore.setText("");
+
+        //CREATE END GAME ALERT
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+        // set title
+        alertDialogBuilder.setTitle("GAME OVER!");
+
+        // set dialog message
+        alertDialogBuilder
+                .setMessage("Final Score: " + newGame.GetTotalPoints() + "\n\nPLAY AGAIN?")
+                .setCancelable(false)
+                .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        //start new game
+                        StartNewGame();
+                    }
+                })
+                .setNegativeButton("No",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        //end game and go back to main menu
+                        gameActivity.this.finish();
+                    }
+                });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
     }
 
     public void createKeyboard(){
@@ -169,11 +242,24 @@ public class gameActivity extends ActionBarActivity {
                 Editable editable = response.getText();
 
                 if(primaryCode==10) {
-                    userResult = response.getText().toString();
-                    response.setText("");
+                    if(editable.length()>0) {
+                        userResult = Integer.parseInt(response.getText().toString());
+                        if(result == userResult) {
+                            response.setText("");
+                            addPoints();
+                            startNextRound = true;
+                            NextRound(newGame);
+                        }
+                        else{
+
+                           // Toast.makeText(this, "Level: " + level, Toast.LENGTH_SHORT).show();
+                        }
+                    }
                 }
                 else if(primaryCode==67){
-                editable.delete(editable.length()-1,editable.length());
+                    if(editable.length()>0) {
+                        editable.delete(editable.length() - 1, editable.length());
+                    }
                 }
                 else{
                     if(editable.length()<4) {
@@ -183,6 +269,8 @@ public class gameActivity extends ActionBarActivity {
                     }
                 }
             }
+
+
 
             @Override
             public void onText(CharSequence text) {
