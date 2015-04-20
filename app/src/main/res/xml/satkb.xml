@@ -20,7 +20,7 @@
     </Row>
     <Row>
         <Key android:codes="67"    android:keyLabel="DEL" android:keyEdgeFlags="left" />
-        <Key android:codes="39"    android:keyLabel="0"  />
+        <Key android:codes="48"    android:keyLabel="0"  />
         <Key android:codes="10"    android:keyLabel="ENTER"  />
     </Row>
 </Keyboard>

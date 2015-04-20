@@ -27,12 +27,18 @@ public class GameModel {
         roundPoints = 1;
         totalPoints = 0;
         level = 1;
+
+        initializeShapes();
+        initializeMathSymbols();
     }
 
     GameModel(int _level){
         roundPoints = _level;
         totalPoints = 0;
         level = _level;
+
+        initializeShapes();
+        initializeMathSymbols();
     }
 
     //property getters and setters
@@ -44,8 +50,8 @@ public class GameModel {
         return roundPoints;
     }
 
-    public void SetTotalPoints(int newNum){
-        totalPoints = newNum;
+    public void AddPoints(){
+        totalPoints += roundPoints;
     }
 
     public int GetTotalPoints(){
@@ -64,7 +70,7 @@ public class GameModel {
     //Generate the shapes
     //Array of shape symbols
     // private Shape shapes[] = {square,triangle,circle,rectangle,oval,pentagon,octagon,star};
-     {
+     private void initializeShapes(){
         Shape square = new Shape("Square",R.drawable.square);
         Shape triangle = new Shape("Triangle",R.drawable.triangle);
         Shape circle = new Shape("Circle",R.drawable.circle);
@@ -86,7 +92,7 @@ public class GameModel {
     }
 
     //Array of math symbols
-    {
+    private void initializeMathSymbols(){
         Operation multiply = new Operation("multiply", R.drawable.multiply, "*");
         Operation divide = new Operation("divide", R.drawable.divide, "/");
         Operation add = new Operation("add", R.drawable.add, "+");
@@ -170,5 +176,22 @@ public class GameModel {
         return null;
     }
 
+    public int Calculate(Shape first, Shape second, Operation op){
+        int num1=first.GetNumber();
+        int num2=second.GetNumber();
+        String operation = op.GetName();
+
+        if(operation == "add"){
+            return num1 + num2;
+        }else if(operation == "subtract"){
+            return num1 - num2;
+        }else if(operation == "multiply"){
+            return num1 * num2;
+        }else if(operation == "divide"){
+            return num1 / num2;
+        }
+
+        return 0;
+    }
 
 }
