@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +39,8 @@ public class gameActivity extends ActionBarActivity {
     Button[] grid = new Button[4]; //game grid
     TextView txtOperand1;
     TextView txtOperand2;
-    TextView txtOperation;
+    //TextView txtOperation;
+    ImageView imgOperation;
     EditText txtScore;
     EditText timer;
 
@@ -66,7 +68,8 @@ public class gameActivity extends ActionBarActivity {
         //get labels and other views needed for game
         txtOperand1 = (TextView)findViewById(R.id.first_shape_textView);
         txtOperand2 = (TextView)findViewById(R.id.second_shape_textView);
-        txtOperation = (TextView)findViewById(R.id.operator_textView);
+        //txtOperation = (TextView)findViewById(R.id.operator_textView);
+        imgOperation = (ImageView)findViewById(R.id.imageView_operator);
         txtScore = (EditText)findViewById(R.id.score_editText);
         timer = (EditText) findViewById( R.id.timer_editText );
 
@@ -127,7 +130,8 @@ public class gameActivity extends ActionBarActivity {
             }
 
             txtOperand1.setText(sh[shape1].GetName());
-            txtOperation.setText(op.GetOperator());
+            //txtOperation.setText(op.GetOperator());
+            imgOperation.setBackgroundResource(op.GetImage());
             txtOperand2.setText(sh[shape2].GetName());
 
 
@@ -199,8 +203,8 @@ public class gameActivity extends ActionBarActivity {
                         StartNewGame();
                     }
                 })
-                .setNegativeButton("No",new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,int id) {
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
                         //end game and go back to main menu
                         gameActivity.this.finish();
                     }

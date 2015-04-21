@@ -3,6 +3,8 @@ package csci3320.kuilin.sat;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -95,22 +97,38 @@ public class welcomeActivity extends ActionBarActivity {
         startActivity(getHelp);
     }
 
-    EditText USER_NAME, USER_SCORE;
-    String user_name;
-    Button reg;
+    public void nameWatch(){
+        final EditText txtName = (EditText)findViewById(R.id.player_name_editText);
+        final Button btnStart = (Button)findViewById(R.id.start_button);
+        TextWatcher nameWatcher = new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+               if(txtName.length()>0){
+                   btnStart.setEnabled(true);
+               }
+               else btnStart.setEnabled(false);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        };
+
+        txtName.addTextChangedListener(nameWatcher);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-        USER_NAME = (EditText) findViewById(R.id.player_name_editText);
-//        reg = (Button) findViewById(R.id.start_button);
-//        reg.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                user_name = USER_NAME.getText().toString();
-//
-//            }
-//        });
+        nameWatch();
+
     }
 
 
