@@ -12,6 +12,8 @@ import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -43,6 +45,7 @@ public class gameActivity extends ActionBarActivity {
     ImageView imgOperation;
     EditText txtScore;
     EditText timer;
+    EditText response;
 
 
 
@@ -72,6 +75,7 @@ public class gameActivity extends ActionBarActivity {
         imgOperation = (ImageView)findViewById(R.id.imageView_operator);
         txtScore = (EditText)findViewById(R.id.score_editText);
         timer = (EditText) findViewById( R.id.timer_editText );
+        response = (EditText) findViewById(R.id.result_editText);
 
         //start a new game
         StartNewGame();
@@ -119,6 +123,28 @@ public class gameActivity extends ActionBarActivity {
                     shape1 = shape2;
                     shape2 = temp;
                 }
+                if(operator == "divide"){
+                    int numerator = sh[shape1].GetNumber();
+                    int denominator = sh[shape2].GetNumber();
+
+                    switch(level){
+                        case 1:
+                        case 4:
+                            sh[shape2].SetNumber(calculateDenominator(denominator,GameModel.MAXNUM_EASY));
+                            sh[shape1].SetNumber(calculateNumerator(denominator,GameModel.MAXNUM_EASY));
+                            break;
+                        case 2:
+                        case 5:
+                            sh[shape2].SetNumber(calculateDenominator(denominator,GameModel.MAXNUM_MED));
+                            sh[shape1].SetNumber(calculateNumerator(denominator,GameModel.MAXNUM_MED));
+                            break;
+                        case 3:
+                        case 6:
+                            sh[shape2].SetNumber(calculateDenominator(denominator,GameModel.MAXNUM_HARD));
+                            sh[shape1].SetNumber(calculateNumerator(denominator,GameModel.MAXNUM_HARD));
+                            break;
+                    }
+                }
             }
             //calculate the correct result
             result = gm.Calculate(sh[shape1],sh[shape2],op);
@@ -136,6 +162,25 @@ public class gameActivity extends ActionBarActivity {
 
 
         }
+    }
+    public int calculateDenominator(int denominator,int maxNum){
+        int den = denominator;
+        if((den > (maxNum/2)) || (den == 0)){
+            den = den/2;
+        }
+        return den;
+    }
+
+    public int calculateNumerator(int denominator,int maxNum){
+        long seed = System.currentTimeMillis();
+        Random generator = new Random(seed);
+
+        int numerator;
+        do {
+            numerator = denominator * generator.nextInt(maxNum);
+        }while (numerator > maxNum);
+
+        return numerator;
     }
 
     @Override
@@ -158,6 +203,11 @@ public class gameActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void animShake(View v) {
+        Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
+        v.startAnimation(shake);
     }
 
     public void TimerCountDown (){
@@ -191,7 +241,7 @@ public class gameActivity extends ActionBarActivity {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
         // set title
-        alertDialogBuilder.setTitle("GAME OVER!");
+        alertDialogBuilder.setTitle("GAME OVER");
 
         // set dialog message
         alertDialogBuilder
@@ -242,7 +292,6 @@ public class gameActivity extends ActionBarActivity {
             @Override
             public void onKey(int primaryCode, int[] keyCodes) {
                 //Get the EditText for response
-                EditText response = (EditText) findViewById(R.id.result_editText);
                 Editable editable = response.getText();
 
                 if(primaryCode==10) {
@@ -255,8 +304,8 @@ public class gameActivity extends ActionBarActivity {
                             NextRound(newGame);
                         }
                         else{
-
-                           // Toast.makeText(this, "Level: " + level, Toast.LENGTH_SHORT).show();
+                            animShake(response);
+                            response.setText("");
                         }
                     }
                 }
