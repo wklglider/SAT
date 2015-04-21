@@ -13,6 +13,10 @@ import csci3320.kuilin.sat.Operation;
  */
 public class GameModel {
 
+    //Define static variables
+    final static int MAXNUM_EASY = 9;
+    final static int MAXNUM_MED = 20;
+    final static int MAXNUM_HARD = 50;
 
     //---------------Initialize------------------------
     private int roundPoints;
@@ -76,9 +80,11 @@ public class GameModel {
         Shape circle = new Shape("Circle",R.drawable.circle);
         Shape rectangle = new Shape("Rectangle",R.drawable.rectangle);
         Shape oval = new Shape("Oval",R.drawable.oval);
-        Shape pentagon = new Shape("Pentagon",R.drawable.pentagon);
-        Shape octagon = new Shape("Octagon",R.drawable.square);
-        Shape star = new Shape("Star",R.drawable.square);
+        Shape diamond = new Shape("Diamond",R.drawable.diamond);
+        Shape heart = new Shape("Heart",R.drawable.heart);
+        Shape star = new Shape("Star",R.drawable.star);
+        Shape hexagon = new Shape("Hexagon",R.drawable.hexagon);
+
 
         shapes = new ArrayList<Shape>();
         shapes.add(square);
@@ -86,9 +92,10 @@ public class GameModel {
         shapes.add(circle);
         shapes.add(rectangle);
         shapes.add(oval);
-        shapes.add(pentagon);
-       //shapes.add(octagon);
-       //shapes.add(star);
+        shapes.add(diamond);
+        shapes.add(heart);
+        shapes.add(star);
+        shapes.add(hexagon);
     }
 
     //Array of math symbols
@@ -118,19 +125,19 @@ public class GameModel {
             case 1:
             case 4:
                 for(int i=0;i < 4; ++i){
-                numbers[i]=generator.nextInt(9);
+                numbers[i]=generator.nextInt(MAXNUM_EASY);
                 }
                 break;
             case 2:
             case 5:
                 for(int i=0;i < 4; ++i){
-                    numbers[i]=generator.nextInt(20);
+                    numbers[i]=generator.nextInt(MAXNUM_MED);
                 }
                 break;
             case 3:
             case 6:
                 for(int i=0;i < 4; ++i){
-                    numbers[i]=generator.nextInt(50);
+                    numbers[i]=generator.nextInt(MAXNUM_HARD);
                 }
                 break;
 

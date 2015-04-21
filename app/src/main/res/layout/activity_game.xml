@@ -138,7 +138,9 @@
         android:layout_alignBottom="@+id/second_shape_textView"
         android:layout_alignRight="@+id/help_button"
 
-        android:textIsSelectable="false" />
+        android:textIsSelectable="false"
+        android:elegantTextHeight="true"
+        android:textAlignment="center" />
 
     <Button
         android:layout_width="100dp"
