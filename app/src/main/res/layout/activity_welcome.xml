@@ -165,7 +165,8 @@
         android:layout_below="@+id/operation_radioButton2"
         android:layout_centerHorizontal="true"
         android:onClick="startGame"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:enabled="false" />
 
     <LinearLayout
         android:orientation="horizontal"

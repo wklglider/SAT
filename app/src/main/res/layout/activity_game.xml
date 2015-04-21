@@ -4,12 +4,16 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".game"
+    android:background="@android:color/darker_gray"
     android:clickable="true">
 
     <TextView android:text="@string/timer" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/timer"
-        android:layout_above="@+id/button_shape1" />
+        android:layout_below="@+id/score"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -17,10 +21,14 @@
         android:id="@+id/timer_editText"
         android:editable="false"
         android:enabled="false"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/button_shape1"
-        android:layout_alignEnd="@+id/button_shape1"
-        android:hint="01:00:00" />
+        android:hint="01:00:00"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_alignTop="@+id/score"
+        android:layout_toRightOf="@+id/timer"
+        android:layout_toEndOf="@+id/timer"
+        android:background="#ffffffff"
+        android:textColor="#ffff423d" />
 
     <TextView
         android:text="@string/score"
@@ -29,7 +37,8 @@
         android:id="@+id/score"
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/result_editText"
-        android:layout_alignStart="@+id/result_editText" />
+        android:layout_alignStart="@+id/result_editText"
+        android:textStyle="bold" />
 
 
     <EditText
@@ -40,16 +49,18 @@
         android:editable="false"
         android:inputType="number"
         android:textStyle="bold"
+        android:textColor="#ff6376ff"
         android:enabled="false"
-        android:layout_below="@+id/score"
-        android:layout_alignRight="@+id/equal_textView"
-        android:layout_alignEnd="@+id/equal_textView" />
+        android:layout_alignTop="@+id/timer"
+        android:layout_alignRight="@+id/score"
+        android:layout_alignEnd="@+id/score" />
 
     <Button
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:text="New Button"
         android:id="@+id/button_shape1"
+        android:layout_marginLeft="30dp"
         android:layout_below="@+id/timer_editText"
         android:layout_toRightOf="@+id/timer"
         android:layout_toEndOf="@+id/timer" />
@@ -59,9 +70,9 @@
         android:layout_height="100dp"
         android:text="New Button"
         android:id="@+id/button_shape2"
-        android:layout_alignBottom="@+id/button_shape1"
-        android:layout_toRightOf="@+id/timer_editText"
-        android:layout_toEndOf="@+id/timer_editText" />
+        android:layout_above="@+id/button_shape3"
+        android:layout_alignLeft="@+id/button_shape4"
+        android:layout_alignStart="@+id/button_shape4" />
 
     <Button
         android:layout_width="100dp"
@@ -77,9 +88,9 @@
         android:layout_height="100dp"
         android:text="New Button"
         android:id="@+id/button_shape4"
-        android:layout_alignTop="@+id/button_shape3"
-        android:layout_alignLeft="@+id/button_shape2"
-        android:layout_alignStart="@+id/button_shape2" />
+        android:layout_below="@+id/button_shape2"
+        android:layout_toRightOf="@+id/button_shape1"
+        android:layout_toEndOf="@+id/button_shape1" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -87,44 +98,47 @@
         android:text="First Shape"
         android:id="@+id/first_shape_textView"
         android:layout_marginTop="26dp"
-        android:layout_below="@+id/button_shape3"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/keyboardview" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="/"
-        android:id="@+id/operator_textView"
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:id="@+id/imageView_operator"
         android:layout_alignTop="@+id/first_shape_textView"
-        android:layout_alignLeft="@+id/timer_editText"
-        android:layout_alignStart="@+id/timer_editText" />
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignRight="@+id/button_shape3" />
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="/"-->
+        <!--android:id="@+id/operator_textView"-->
+        <!--android:layout_alignTop="@+id/first_shape_textView"-->
+        <!--android:layout_alignStart="@+id/timer_editText"-->
+        <!--android:layout_toRightOf="@+id/first_shape_textView"-->
+        <!--android:layout_alignLeft="@+id/second_shape_textView" />-->
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Second Shape"
         android:id="@+id/second_shape_textView"
-        android:layout_alignTop="@+id/operator_textView"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignTop="@+id/imageView_operator"
+        android:layout_alignRight="@+id/button_shape4"
+        android:layout_alignEnd="@+id/button_shape4" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="="
-        android:id="@+id/equal_textView"
-        android:layout_alignTop="@+id/second_shape_textView"
-        android:layout_toRightOf="@+id/score"
-        android:layout_toEndOf="@+id/score" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/result_editText"
         android:hint="Answer"
-        android:textSize="16dp"
-        android:layout_below="@+id/button_shape4"
-        android:layout_alignParentRight="true" />
+        android:textSize="15dp"
+        android:layout_alignBottom="@+id/second_shape_textView"
+        android:layout_alignRight="@+id/help_button"
+
+        android:textIsSelectable="false" />
 
     <Button
         android:layout_width="100dp"
@@ -146,21 +160,16 @@
         android:layout_alignParentEnd="true"
         android:onClick="loadHelpPage" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:inputType="numberDecimal"
-        android:layout_alignTop="@+id/equal_textView" />
-
     <android.inputmethodservice.KeyboardView
         android:id="@+id/keyboardview"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:visibility="visible"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/first_shape_textView" />
+        android:layout_centerHorizontal="true"
+
+        android:layout_above="@+id/home_button" />
+
+
 
 
 </RelativeLayout>
