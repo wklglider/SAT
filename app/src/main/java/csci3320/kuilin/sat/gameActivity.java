@@ -207,11 +207,24 @@ public class gameActivity extends ActionBarActivity {
         txtScore.setText(Integer.toString(newGame.GetTotalPoints()));
     }
 
+    public boolean isHighScore(int score){
+
+        return false;
+    }
+
+    public void setScore(String player, int score){
+        DatabaseOperations dbOp = new DatabaseOperations(this);
+        dbOp.putInformation(player,score);
+
+    }
     public void endGame(){
 
 //        btnHelp.setEnabled(true);
 //        btnHome.setEnabled(true);
 
+        if(isHighScore(0)){
+
+        }
         //CREATE END GAME ALERT
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
@@ -240,6 +253,7 @@ public class gameActivity extends ActionBarActivity {
 
         // show it
         alertDialog.show();
+
     }
 
     public void createKeyboard(){
