@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +21,7 @@ public class welcomeActivity extends ActionBarActivity {
     //variables pass to the main game
     String name = "";
     int level = 0;
+    //EditText txtName = (EditText)findViewById(R.id.player_name_editText);
 
     public void startGame(View view) {
         TextView txtView = (TextView) findViewById(R.id.player_name_editText);
@@ -100,6 +102,7 @@ public class welcomeActivity extends ActionBarActivity {
     public void nameWatch(){
         final EditText txtName = (EditText)findViewById(R.id.player_name_editText);
         final Button btnStart = (Button)findViewById(R.id.start_button);
+
         TextWatcher nameWatcher = new TextWatcher() {
 
             @Override
@@ -113,6 +116,8 @@ public class welcomeActivity extends ActionBarActivity {
                    btnStart.setEnabled(true);
                }
                else btnStart.setEnabled(false);
+
+
             }
 
             @Override
@@ -122,35 +127,54 @@ public class welcomeActivity extends ActionBarActivity {
         };
 
         txtName.addTextChangedListener(nameWatcher);
-    }
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
-        nameWatch();
+
+        txtName.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    if(txtName.length()>0) {
+                        startGame(txtName);
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
 
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_welcome, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
-        return super.onOptionsItemSelected(item);
-    }
-}
+
+           @Override
+           protected void onCreate(Bundle savedInstanceState) {
+               super.onCreate(savedInstanceState);
+               setContentView(R.layout.activity_welcome);
+               nameWatch();
+
+           }
+
+
+           @Override
+           public boolean onCreateOptionsMenu(Menu menu) {
+               // Inflate the menu; this adds items to the action bar if it is present.
+               getMenuInflater().inflate(R.menu.menu_welcome, menu);
+               return true;
+           }
+
+           @Override
+           public boolean onOptionsItemSelected(MenuItem item) {
+               // Handle action bar item clicks here. The action bar will
+               // automatically handle clicks on the Home/Up button, so long
+               // as you specify a parent activity in AndroidManifest.xml.
+               int id = item.getItemId();
+
+               //noinspection SimplifiableIfStatement
+               if (id == R.id.action_settings) {
+                   return true;
+               }
+
+               return super.onOptionsItemSelected(item);
+           }
+       }

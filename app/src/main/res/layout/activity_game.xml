@@ -150,7 +150,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/first_shape_textView"
         android:layout_alignStart="@+id/first_shape_textView"
-        android:onClick="loadHomePage" />
+        android:onClick="loadHomePage"
+        android:enabled="true" />
 
     <Button
         android:layout_width="100dp"
@@ -160,7 +161,8 @@
         android:layout_alignTop="@+id/home_button"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="loadHelpPage" />
+        android:onClick="loadHelpPage"
+        android:enabled="true" />
 
     <android.inputmethodservice.KeyboardView
         android:id="@+id/keyboardview"

@@ -195,6 +195,10 @@ public class GameModel {
         }else if(operation == "multiply"){
             return num1 * num2;
         }else if(operation == "divide"){
+            while(num2==0)
+            {
+                num2=NumberGen()[0];
+            }
             return num1 / num2;
         }
 
