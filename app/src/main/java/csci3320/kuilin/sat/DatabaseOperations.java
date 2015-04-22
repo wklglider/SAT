@@ -33,7 +33,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
     // Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_SCORE_TABLE = "CREATE TABLE " + TABLE_NAME + "(" + USER_NAME + " TEXT," + USER_SCORE + " TEXT );";
+        String CREATE_SCORE_TABLE = "CREATE TABLE " + TABLE_NAME + "(" + USER_NAME + " TEXT," + USER_SCORE + " Ingeger );";
         db.execSQL(CREATE_SCORE_TABLE);
         Log.d("Database operations", "Table created");
 
@@ -51,7 +51,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
 
     // All Operations (Create, Read, Update, Delete)
     // Adding new user information
-    public void putInformation(String name, String score) {
+    public void putInformation(String name, int score) {
         SQLiteDatabase sql = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(USER_NAME, name); // User name
@@ -64,7 +64,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
     }
 
     // Getting all user information
-    public List getInformation(String name, String score) {
+    public List getInformation() {
         List scoreList = new ArrayList();
         // Select all query
         String selectQuery = "Select from " + TABLE_NAME;
@@ -75,7 +75,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
             do {
                 // Adding contact to list
                 scoreList.add(cursor.getString(0));
-                scoreList.add(cursor.getString(1));
+                scoreList.add(cursor.getInt(1));
             } while (cursor.moveToNext());
         }
 
