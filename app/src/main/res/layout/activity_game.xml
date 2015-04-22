@@ -19,9 +19,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/timer_editText"
-        android:editable="false"
         android:enabled="false"
-        android:hint="01:00:00"
+        android:hint="@string/timer_hint"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
         android:layout_alignTop="@+id/score"
@@ -45,8 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/score_editText"
-        android:hint="0"
-        android:editable="false"
+        android:hint="@string/score_hint"
         android:inputType="number"
         android:textStyle="bold"
         android:textColor="#ff6376ff"
@@ -58,7 +56,6 @@
     <Button
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:text="New Button"
         android:id="@+id/button_shape1"
         android:layout_marginLeft="30dp"
         android:layout_below="@+id/timer_editText"
@@ -77,7 +74,6 @@
     <Button
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:text="New Button"
         android:id="@+id/button_shape3"
         android:layout_below="@+id/button_shape1"
         android:layout_alignLeft="@+id/button_shape1"
@@ -95,7 +91,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="First Shape"
         android:id="@+id/first_shape_textView"
         android:layout_marginTop="26dp"
         android:layout_alignParentLeft="true"
@@ -145,7 +140,7 @@
     <Button
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:text="Home"
+        android:text="@string/home"
         android:id="@+id/home_button"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/first_shape_textView"
@@ -156,7 +151,7 @@
     <Button
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:text="HELP"
+        android:text="@string/help"
         android:id="@+id/help_button"
         android:layout_alignTop="@+id/home_button"
         android:layout_alignParentRight="true"
