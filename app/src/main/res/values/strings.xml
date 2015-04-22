@@ -12,8 +12,13 @@
     <string name="start">Start</string>
     <string name="scores">Scores</string>
     <string name="help">Help</string>
+    <string name="home">Home</string>
+    <string name="timer_hint">01:00:00</string>
+    <string name="score_hint">0</string>
 
     <!--game activity-->
     <string name="timer">Timer</string>
     <string name="score">Score</string>
+
+
 </resources>
