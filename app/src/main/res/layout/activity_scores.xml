@@ -31,7 +31,9 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Name"
                 android:id="@+id/score_name"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -61,7 +63,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_1"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -91,7 +95,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_2"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -121,7 +127,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_3"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -151,7 +159,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_4"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -181,7 +191,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_5"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -211,7 +223,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_6"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -241,7 +255,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_7"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -271,7 +287,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_8"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -301,7 +319,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_9"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -331,7 +351,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_10"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -361,7 +383,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_11"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -391,7 +415,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_12"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -421,7 +447,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_13"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -451,7 +479,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_14"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -481,7 +511,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_15"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -511,7 +543,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_16"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -541,7 +575,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_17"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -571,7 +607,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_18"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -601,7 +639,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_19"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -631,7 +671,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="name"
                 android:id="@+id/score_name_20"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="left" />
 
             <TextView
                 android:layout_width="wrap_content"
