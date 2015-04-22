@@ -18,16 +18,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-import csci3320.kuilin.sat.Shape;
-import csci3320.kuilin.sat.Operation;
-import csci3320.kuilin.sat.GameModel;
+
+
 
 
 public class gameActivity extends ActionBarActivity {
@@ -41,12 +36,12 @@ public class gameActivity extends ActionBarActivity {
     Button[] grid = new Button[4]; //game grid
     TextView txtOperand1;
     TextView txtOperand2;
-    //TextView txtOperation;
     ImageView imgOperation;
     EditText txtScore;
     EditText timer;
     EditText response;
-
+    Button btnHelp;
+    Button btnHome;
 
 
     @Override
@@ -71,24 +66,23 @@ public class gameActivity extends ActionBarActivity {
         //get labels and other views needed for game
         txtOperand1 = (TextView)findViewById(R.id.first_shape_textView);
         txtOperand2 = (TextView)findViewById(R.id.second_shape_textView);
-        //txtOperation = (TextView)findViewById(R.id.operator_textView);
         imgOperation = (ImageView)findViewById(R.id.imageView_operator);
         txtScore = (EditText)findViewById(R.id.score_editText);
         timer = (EditText) findViewById( R.id.timer_editText );
         response = (EditText) findViewById(R.id.result_editText);
-
+        btnHelp = (Button)findViewById(R.id.help_button);
+        btnHome = (Button)findViewById(R.id.home_button);
         //start a new game
         StartNewGame();
-
-        //Create an alert for end of game
-
-        //Toast.makeText(this, "Level: " + level, Toast.LENGTH_SHORT).show();
     }
 
     public void StartNewGame()
     {
         //create new game
         newGame = new GameModel(level);
+
+        //clean up variables
+        txtScore.setText("");
 
         //start the countdown timer and start the round
         TimerCountDown();
@@ -100,6 +94,8 @@ public class gameActivity extends ActionBarActivity {
         if(startNextRound) {
             //reset boolean for next round
             startNextRound=false;
+//            btnHelp.setEnabled(false);
+//            btnHome.setEnabled(true);
 
             //Get shapes and operation
             Shape[] sh = gm.GetShapes();
@@ -117,14 +113,13 @@ public class gameActivity extends ActionBarActivity {
 
             //validate the numbers to prevent negative numbers or math errors
             String operator = op.GetName();
-            if(operator == "subtract" || operator == "divide") {
+            if(operator.equals("subtract") || operator.equals("divide")) {
                 if(sh[shape1].GetNumber()<sh[shape2].GetNumber()){
                     int temp = shape1;
                     shape1 = shape2;
                     shape2 = temp;
                 }
-                if(operator == "divide"){
-                    int numerator = sh[shape1].GetNumber();
+                if(operator.equals("divide")){
                     int denominator = sh[shape2].GetNumber();
 
                     switch(level){
@@ -156,7 +151,6 @@ public class gameActivity extends ActionBarActivity {
             }
 
             txtOperand1.setText(sh[shape1].GetName());
-            //txtOperation.setText(op.GetOperator());
             imgOperation.setBackgroundResource(op.GetImage());
             txtOperand2.setText(sh[shape2].GetName());
 
@@ -166,7 +160,7 @@ public class gameActivity extends ActionBarActivity {
     public int calculateDenominator(int denominator,int maxNum){
         int den = denominator;
         if((den > (maxNum/2)) || (den == 0)){
-            den = den/2;
+            den = (den+1)/2;
         }
         return den;
     }
@@ -183,27 +177,7 @@ public class gameActivity extends ActionBarActivity {
         return numerator;
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_game, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     private void animShake(View v) {
         Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
@@ -234,8 +208,9 @@ public class gameActivity extends ActionBarActivity {
     }
 
     public void endGame(){
-        //clean up variables
-        txtScore.setText("");
+
+//        btnHelp.setEnabled(true);
+//        btnHome.setEnabled(true);
 
         //CREATE END GAME ALERT
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
@@ -273,6 +248,10 @@ public class gameActivity extends ActionBarActivity {
 
         // Lookup the KeyboardView
         KeyboardView mKeyboardView= (KeyboardView)findViewById(R.id.keyboardview);
+
+        //Disable key popup preview
+        mKeyboardView.setPreviewEnabled(false);
+        //setPreviewEnabled(boolean previewEnabled)
         // Attach the keyboard to the view
         mKeyboardView.setKeyboard( mKeyboard );
         // Do not show the preview balloons
@@ -371,5 +350,27 @@ public class gameActivity extends ActionBarActivity {
     public void loadHelpPage(View view) {
         Intent help = new Intent(this,helpActivity.class);
         startActivity(help);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_game, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
