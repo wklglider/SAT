@@ -20,5 +20,11 @@
     <string name="timer">Timer</string>
     <string name="score">Score</string>
 
+    <!--score activity-->
+    <string name="hdrPlayer">Player</string>
+    <string name="hdrLevel">Level</string>
+    <string name="hdrScore">Score</string>
+
+
 
 </resources>

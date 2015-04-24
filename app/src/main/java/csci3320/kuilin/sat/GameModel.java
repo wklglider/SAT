@@ -115,6 +115,23 @@ public class GameModel {
     }
     //------------Round Start Helper Methods-----------------
 
+    //Static class method to generate random number
+    public static int NumberGen(int maxNum){
+        long seed = System.currentTimeMillis();
+        Random generator = new Random(seed);
+
+        switch(maxNum){
+            case MAXNUM_EASY:
+                return generator.nextInt(MAXNUM_EASY);
+            case MAXNUM_MED:
+                return generator.nextInt(MAXNUM_MED);
+            case MAXNUM_HARD:
+                return generator.nextInt(MAXNUM_HARD);
+
+        }
+
+        return generator.nextInt(MAXNUM_EASY);
+    }
     //Random number generator
     private int[] NumberGen(){
         long seed = System.currentTimeMillis();
@@ -195,10 +212,7 @@ public class GameModel {
         }else if(operation == "multiply"){
             return num1 * num2;
         }else if(operation == "divide"){
-            while(num2==0)
-            {
-                num2=NumberGen()[0];
-            }
+
             return num1 / num2;
         }
 

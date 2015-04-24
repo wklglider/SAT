@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dp"
+    android:stretchColumns="*" >
+
+
+    <TableRow
+        android:weightSum="1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView android:id="@+id/txtHeaderName"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:text="@string/hdrPlayer"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <TextView android:id="@+id/txtHeaderLevel"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:text="@string/hdrLevel"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#000000" />
+
+        <TextView android:id="@+id/txtHeaderScore"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:text="@string/hdrScore"
+            android:textStyle="bold"
+            android:textColor="#000000" />
+    </TableRow>
+
+</TableLayout>

@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.os.CountDownTimer;
+import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +20,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -27,7 +31,7 @@ import java.util.concurrent.TimeUnit;
 
 public class gameActivity extends ActionBarActivity {
 
-    public String name;
+    public String playerName;
     public int level;
     public GameModel newGame;
     public int result;
@@ -53,7 +57,7 @@ public class gameActivity extends ActionBarActivity {
         createKeyboard();
         //Get info from welcome activity
         Intent i = getIntent();
-        name = i.getStringExtra("name");
+        playerName = i.getStringExtra("name");
         level = i.getIntExtra("level", 0);
 
 
@@ -159,9 +163,16 @@ public class gameActivity extends ActionBarActivity {
     }
     public int calculateDenominator(int denominator,int maxNum){
         int den = denominator;
-        if((den > (maxNum/2)) || (den == 0)){
+        //generate a new number if the denominator is zero
+        while(den==0)
+        {
+            den=GameModel.NumberGen(maxNum);
+        }
+
+        if(den > (maxNum/2)){
             den = (den+1)/2;
         }
+
         return den;
     }
 
@@ -207,24 +218,53 @@ public class gameActivity extends ActionBarActivity {
         txtScore.setText(Integer.toString(newGame.GetTotalPoints()));
     }
 
-    public boolean isHighScore(int score){
+    public int isHighScore(int score){
+        DatabaseOperations dbOp = new DatabaseOperations(this);
+        ArrayList<UserScore> highscores = dbOp.getInformation();
 
-        return false;
+        int length = highscores.size();
+        int index = -1;
+
+        if(highscores.isEmpty()) {
+            index = 0;
+            Log.d("Database Add", "highscores is empty, index=0");
+        }
+        else if(score > highscores.get(length - 1).score){
+            if(length==20) {
+                if (score > highscores.get(length - 1).score) {
+                    for(int i = 0; i < length-1;++i){
+
+                    }
+                    Log.d("Database Add", "highscores is full, index=" + index);
+                }
+            }else{
+                index = length;
+                Log.d("Database Add", "highscores has room, index=" + index);
+            }
+
+        }
+        return index;
     }
 
-    public void setScore(String player, int score){
+    public void setScore(String player, int levelPlayed, int score, int index){
         DatabaseOperations dbOp = new DatabaseOperations(this);
-        dbOp.putInformation(player,score);
+        dbOp.putInformation(player,levelPlayed,score);
 
     }
     public void endGame(){
 
 //        btnHelp.setEnabled(true);
 //        btnHome.setEnabled(true);
+        String msgEnd = "";
+        int roundScore = newGame.GetTotalPoints();
+        int index = 1; //isHighScore(roundScore);
 
-        if(isHighScore(0)){
-
+        if(index > 0){
+            msgEnd = "NEW HIGH SCORE!!!\t\t" + roundScore + "\n\nPLAY AGAIN?";
+            setScore(playerName,newGame.GetLevel(),roundScore,index);
         }
+        else
+            msgEnd = "Final Score: " + roundScore + "\n\nPLAY AGAIN?";
         //CREATE END GAME ALERT
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
@@ -233,7 +273,7 @@ public class gameActivity extends ActionBarActivity {
 
         // set dialog message
         alertDialogBuilder
-                .setMessage("Final Score: " + newGame.GetTotalPoints() + "\n\nPLAY AGAIN?")
+                .setMessage(msgEnd)
                 .setCancelable(false)
                 .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {

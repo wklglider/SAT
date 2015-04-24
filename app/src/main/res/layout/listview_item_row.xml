@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dp"
+    android:stretchColumns="*">
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1" >
+
+        <TextView android:id="@+id/txtPlayerName"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:textSize="22sp"
+            android:textColor="#ffff6a19" />
+
+        <TextView android:id="@+id/txtLevel"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:textSize="22sp"
+            android:textColor="#ffff6a19" />
+
+        <TextView android:id="@+id/txtScore"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:textSize="22sp"
+            android:textColor="#ffff6a19" />
+    </TableRow>
+
+</TableLayout>
