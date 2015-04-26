@@ -66,6 +66,14 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         close();
 
     }
+    public void dropTable(){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.execSQL("Drop table if exists " + TABLE_NAME);
+        // Create tables again
+        onCreate(db);
+    }
+
 
     // Getting all user information
     public ArrayList<UserScore> getInformation() {

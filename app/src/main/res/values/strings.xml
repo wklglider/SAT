@@ -2,6 +2,7 @@
     <string name="app_name">SAT</string>
 
     <string name="action_settings">Settings</string>
+    <string name="action_clear">Clear Scores</string>
     <string name="title_activity_help">SAT</string>
     <string name="title_activity_welcome">SAT</string>
     <string name="title_activity_scores">SAT</string>
@@ -25,7 +26,22 @@
     <string name="hdrPlayer">Player</string>
     <string name="hdrLevel">Level</string>
     <string name="hdrScore">Score</string>
+    <string name="btnErase">Clear Scores</string>
 
+
+    <!--help activity-->
+    <string name="helpText">
+        This is a game that lets kids learn shapes, numbers, and arithmetic.\n\n\n
+
+        •	Select operations and operands for various difficulty levels.\n\n
+        •	Identify the correct shapes by name and find out the corresponding numbers in the shapes.\n\n
+        •	Solve as many problems as you can within one minute.\n\n
+        •	Press HELP to see game rules.\n\n
+        •	Press SCORES to see scores history of players.\n\n
+
+
+
+    </string>
 
 
 </resources>

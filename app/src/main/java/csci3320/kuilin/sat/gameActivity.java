@@ -124,6 +124,8 @@ public class gameActivity extends ActionBarActivity {
                     shape1 = shape2;
                     shape2 = temp;
                 }
+
+                Log.d("Before Change","Num=" + sh[shape1].GetNumber() + ", Den=" + sh[shape2].GetNumber());
                 if(operator.equals("divide")){
                     int denominator = sh[shape2].GetNumber();
 
@@ -131,17 +133,20 @@ public class gameActivity extends ActionBarActivity {
                         case 1:
                         case 4:
                             sh[shape2].SetNumber(calculateDenominator(denominator,GameModel.MAXNUM_EASY));
-                            sh[shape1].SetNumber(calculateNumerator(denominator,GameModel.MAXNUM_EASY));
+                            sh[shape1].SetNumber(calculateNumerator(sh[shape2].GetNumber(),GameModel.MAXNUM_EASY));
                             break;
                         case 2:
                         case 5:
                             sh[shape2].SetNumber(calculateDenominator(denominator,GameModel.MAXNUM_MED));
-                            sh[shape1].SetNumber(calculateNumerator(denominator,GameModel.MAXNUM_MED));
+                            sh[shape1].SetNumber(calculateNumerator(sh[shape2].GetNumber(),GameModel.MAXNUM_MED));
+                            Log.d("Changing num+den","Num=" + sh[shape1].GetNumber() + ", Den=" + sh[shape2].GetNumber());
+
                             break;
                         case 3:
                         case 6:
                             sh[shape2].SetNumber(calculateDenominator(denominator,GameModel.MAXNUM_HARD));
-                            sh[shape1].SetNumber(calculateNumerator(denominator,GameModel.MAXNUM_HARD));
+                            sh[shape1].SetNumber(calculateNumerator(sh[shape2].GetNumber(),GameModel.MAXNUM_HARD));
+                            Log.d("Changing num+den","Num=" + sh[shape1].GetNumber() + ", Den=" + sh[shape2].GetNumber());
                             break;
                     }
                 }
@@ -169,11 +174,6 @@ public class gameActivity extends ActionBarActivity {
         {
             den=GameModel.NumberGen(maxNum);
         }
-
-        if(den > (maxNum/2)){
-            den = (den/2);
-        }
-
         return den;
     }
 
@@ -225,26 +225,25 @@ public class gameActivity extends ActionBarActivity {
 
         int length = highscores.size();
         int index = -1;
-
-        if(highscores.isEmpty()) {
+    if(score > 0) {
+        if (highscores.isEmpty()) {
             index = 0;
             Log.d("Database Add", "highscores is empty, index=0");
-        }
-        else if(length<MAXHIGHSCORE){
+        } else if (length < MAXHIGHSCORE) {
             index = length;
             Log.d("Database Add", "highscores has room, index=" + index);
 
-        }else if(score > highscores.get(length - 1).score){
+        } else if (score > highscores.get(length - 1).score) {
 
-            for(int i = 0; i < length ;++i){
-                if(highscores.get(i).score < score){
+            for (int i = 0; i < length; ++i) {
+                if (highscores.get(i).score < score) {
                     index = i;
                     break;
                 }
             }
             Log.d("Database Add", "highscores is full, index=" + index);
         }
-
+    }
         return index;
     }
 
@@ -255,8 +254,6 @@ public class gameActivity extends ActionBarActivity {
     }
     public void endGame(){
 
-//        btnHelp.setEnabled(true);
-//        btnHome.setEnabled(true);
         String msgTitle = "GAME OVER";
         int roundScore = newGame.GetTotalPoints();
         int index = isHighScore(roundScore);
@@ -398,13 +395,10 @@ public class gameActivity extends ActionBarActivity {
     }
 
     public void loadHomePage(View view) {
-        Intent home = new Intent(this,welcomeActivity.class);
+        final Intent home = new Intent(this,welcomeActivity.class);
         startActivity(home);
-    }
 
-    public void loadHelpPage(View view) {
-        Intent help = new Intent(this,helpActivity.class);
-        startActivity(help);
+
     }
 
     @Override
