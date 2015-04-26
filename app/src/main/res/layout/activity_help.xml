@@ -51,11 +51,10 @@
         android:layout_height="wrap_content"
         android:text="home"
         android:id="@+id/button"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignStart="@+id/textView2"
         android:layout_gravity="bottom"
-        android:onClick="loadHomePage" />
+        android:onClick="loadHomePage"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"

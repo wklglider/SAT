@@ -163,12 +163,13 @@
         android:text="@string/start"
         android:id="@+id/start_button"
         android:background="@drawable/orange_button_small"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/operation_radioButton2"
         android:layout_centerHorizontal="true"
         android:onClick="startGame"
         android:layout_gravity="center_horizontal"
-        android:enabled="false" />
+        android:enabled="false"
+        android:layout_marginLeft="10dp" />
 
     <LinearLayout
         android:orientation="horizontal"
