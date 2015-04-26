@@ -83,19 +83,9 @@ public class welcomeActivity extends ActionBarActivity {
     }
 
     public void showScores(View view) {
-        TextView txtView = (TextView) findViewById(R.id.player_name_editText);
-        name = txtView.getText().toString();
 
         Intent showScores = new Intent(this,scoresActivity.class);
-        showScores.putExtra("level",level);
-        showScores.putExtra("name",name);
-
         startActivity(showScores);
-    }
-
-    public void getHelp(View view) {
-        Intent getHelp = new Intent(this,helpActivity.class);
-        startActivity(getHelp);
     }
 
     public void nameWatch(){

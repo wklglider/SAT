@@ -12,6 +12,7 @@ import android.widget.TextView;
 public class helpActivity extends ActionBarActivity {
 
     public void loadHomePage(View view) {
+        this.finish();
         Intent home = new Intent(this,welcomeActivity.class);
         startActivity(home);
     }

@@ -37,6 +37,7 @@ public class gameActivity extends ActionBarActivity {
     public int result;
     public int userResult;
     boolean startNextRound;
+    boolean gameCancelled=false;
     final static int MAXHIGHSCORE = 5;
     Button[] grid = new Button[4]; //game grid
     TextView txtOperand1;
@@ -81,6 +82,12 @@ public class gameActivity extends ActionBarActivity {
         StartNewGame();
     }
 
+    @Override
+    public void onBackPressed(){
+        gameCancelled=true;
+        this.finish();
+    }
+
     public void StartNewGame()
     {
         //create new game
@@ -90,6 +97,7 @@ public class gameActivity extends ActionBarActivity {
         txtScore.setText("");
 
         //start the countdown timer and start the round
+        gameCancelled=false;
         TimerCountDown();
         startNextRound = true;
         NextRound(newGame);
@@ -99,8 +107,6 @@ public class gameActivity extends ActionBarActivity {
         if(startNextRound) {
             //reset boolean for next round
             startNextRound=false;
-//            btnHelp.setEnabled(false);
-//            btnHome.setEnabled(true);
 
             //Get shapes and operation
             Shape[] sh = gm.GetShapes();
@@ -205,6 +211,8 @@ public class gameActivity extends ActionBarActivity {
                         TimeUnit.MILLISECONDS.toSeconds( millisUntilFinished),
                         TimeUnit.MILLISECONDS.toMillis(millisUntilFinished) -
                                 TimeUnit.SECONDS.toMillis(TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished))));
+                if(gameCancelled)
+                    this.cancel();
             }
 
             public void onFinish() {
@@ -212,6 +220,8 @@ public class gameActivity extends ActionBarActivity {
                 timer.setText("Time up!");
             }
         }.start();
+
+
     }
 
     public void addPoints(){
@@ -397,10 +407,10 @@ public class gameActivity extends ActionBarActivity {
     }
 
     public void loadHomePage(View view) {
+        gameCancelled=true;
+        this.finish();
         final Intent home = new Intent(this,welcomeActivity.class);
         startActivity(home);
-
-
     }
 
     @Override
