@@ -44,6 +44,8 @@ public class scoresActivity extends ActionBarActivity {
         View header = (View)getLayoutInflater().inflate(R.layout.listview_header_row,null);
         scoresListView.addHeaderView(header);
 
+        //Set footer
+
         //Set adapter
         scoresListView.setAdapter(adapter);
 

@@ -7,7 +7,8 @@
     android:orientation="vertical"
     tools:context="csci3320.kuilin.sat.welcomeActivity"
     android:id="@+id/game"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="#ffffffff">
 
     <ImageView
         android:layout_width="247dp"
@@ -161,6 +162,7 @@
         android:layout_height="wrap_content"
         android:text="@string/start"
         android:id="@+id/start_button"
+        android:background="@drawable/orange_button_small"
         android:layout_marginTop="20dp"
         android:layout_below="@+id/operation_radioButton2"
         android:layout_centerHorizontal="true"
@@ -179,6 +181,7 @@
             android:layout_height="wrap_content"
             android:text="@string/scores"
             android:id="@+id/scores_button"
+            android:background="@drawable/orange_button_small"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -192,6 +195,7 @@
             android:layout_height="wrap_content"
             android:text="@string/help"
             android:id="@+id/help_button"
+            android:background="@drawable/orange_button_small"
             android:layout_alignBottom="@+id/scores_button"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"

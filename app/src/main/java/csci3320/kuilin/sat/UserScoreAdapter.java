@@ -2,7 +2,6 @@ package csci3320.kuilin.sat;
 
 import android.app.Activity;
 import android.content.Context;
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,18 +31,11 @@ public class UserScoreAdapter extends ArrayAdapter<UserScore>{
     public View getView(int position, View convertView, ViewGroup parent) {
         // assign the view we are converting to a local variable
         View row = convertView;
-        //ScoreHolder holder = new ScoreHolder();
-
 
         if(row==null){
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();
             row = inflater.inflate(layoutResourceId,parent,false);
 
-//            holder.txtPlayerName = (TextView)row.findViewById(R.id.txtPlayerName);
-//            holder.txtLevel=(TextView)row.findViewById(R.id.txtLevel);
-//            holder.txtScore=(TextView)row.findViewById(R.id.txtScore);
-//
-//            row.setTag(holder);
         }
 
 
@@ -65,11 +57,5 @@ public class UserScoreAdapter extends ArrayAdapter<UserScore>{
         }
         return row;
     }
-
-//    static class ScoreHolder{
-//        TextView txtPlayerName;
-//        TextView txtScore;
-//        TextView txtLevel;
-//    }
 
 }

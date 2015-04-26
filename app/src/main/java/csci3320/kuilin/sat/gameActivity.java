@@ -37,6 +37,7 @@ public class gameActivity extends ActionBarActivity {
     public int result;
     public int userResult;
     boolean startNextRound;
+    final static int MAXHIGHSCORE = 5;
     Button[] grid = new Button[4]; //game grid
     TextView txtOperand1;
     TextView txtOperand2;
@@ -170,7 +171,7 @@ public class gameActivity extends ActionBarActivity {
         }
 
         if(den > (maxNum/2)){
-            den = (den+1)/2;
+            den = (den/2);
         }
 
         return den;
@@ -229,20 +230,21 @@ public class gameActivity extends ActionBarActivity {
             index = 0;
             Log.d("Database Add", "highscores is empty, index=0");
         }
-        else if(score > highscores.get(length - 1).score){
-            if(length==20) {
-                if (score > highscores.get(length - 1).score) {
-                    for(int i = 0; i < length-1;++i){
+        else if(length<MAXHIGHSCORE){
+            index = length;
+            Log.d("Database Add", "highscores has room, index=" + index);
 
-                    }
-                    Log.d("Database Add", "highscores is full, index=" + index);
+        }else if(score > highscores.get(length - 1).score){
+
+            for(int i = 0; i < length ;++i){
+                if(highscores.get(i).score < score){
+                    index = i;
+                    break;
                 }
-            }else{
-                index = length;
-                Log.d("Database Add", "highscores has room, index=" + index);
             }
-
+            Log.d("Database Add", "highscores is full, index=" + index);
         }
+
         return index;
     }
 
@@ -255,25 +257,24 @@ public class gameActivity extends ActionBarActivity {
 
 //        btnHelp.setEnabled(true);
 //        btnHome.setEnabled(true);
-        String msgEnd = "";
+        String msgTitle = "GAME OVER";
         int roundScore = newGame.GetTotalPoints();
-        int index = 1; //isHighScore(roundScore);
+        int index = isHighScore(roundScore);
 
-        if(index > 0){
-            msgEnd = "NEW HIGH SCORE!!!\t\t" + roundScore + "\n\nPLAY AGAIN?";
+        if(index >= 0){
+            msgTitle = "NEW HIGH SCORE!!!";
             setScore(playerName,newGame.GetLevel(),roundScore,index);
         }
-        else
-            msgEnd = "Final Score: " + roundScore + "\n\nPLAY AGAIN?";
+
         //CREATE END GAME ALERT
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
         // set title
-        alertDialogBuilder.setTitle("GAME OVER");
+        alertDialogBuilder.setTitle(msgTitle);
 
         // set dialog message
         alertDialogBuilder
-                .setMessage(msgEnd)
+                .setMessage("Final Score: " + roundScore + "\n\nPLAY AGAIN?")
                 .setCancelable(false)
                 .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {

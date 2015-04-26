@@ -6,9 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
 import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  * Created by kuilin on 4/19/15.
@@ -21,6 +20,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
     public static final String USER_NAME = "user_name";
     public static final String USER_SCORE = "user_score";
     public static final String LEVEL = "level";
+    public static final String ID = "id";
     // Database Name
     public static final String DATABASE_NAME = "sat_info";
     // Score table name
@@ -35,7 +35,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
     // Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_SCORE_TABLE = "CREATE TABLE " + TABLE_NAME + "(" + USER_NAME + " TEXT, " + LEVEL + " Integer, " + USER_SCORE + " Integer );";
+        String CREATE_SCORE_TABLE = "CREATE TABLE " + TABLE_NAME + "(" + ID + " integer primary key autoincrement, " + USER_NAME + " TEXT, " + LEVEL + " Integer, " + USER_SCORE + " Integer );";
         db.execSQL(CREATE_SCORE_TABLE);
         Log.d("Database operations", "Table created");
 
@@ -69,7 +69,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
 
     // Getting all user information
     public ArrayList<UserScore> getInformation() {
-        ArrayList<UserScore> scoreList = new ArrayList();
+        ArrayList<UserScore> scoreList = new ArrayList<UserScore>();
         // Select all query
         String selectQuery = "Select * from " + TABLE_NAME + " ORDER BY " + USER_SCORE + " DESC";
         SQLiteDatabase sql = this.getReadableDatabase();
@@ -77,12 +77,13 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         // Looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                UserScore x = new UserScore(cursor.getString(0),cursor.getInt(1),cursor.getInt(2));
+                UserScore x = new UserScore(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getInt(3));
 
                 scoreList.add(x);
 
             } while (cursor.moveToNext());
         }
+        cursor.close();
 
         // return score list
         return scoreList;

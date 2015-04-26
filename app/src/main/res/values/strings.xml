@@ -19,6 +19,7 @@
     <!--game activity-->
     <string name="timer">Timer</string>
     <string name="score">Score</string>
+    <string name="answer">Answer</string>
 
     <!--score activity-->
     <string name="hdrPlayer">Player</string>
