@@ -18,17 +18,4 @@
         android:headerDividersEnabled="true"
         android:footerDividersEnabled="true" />
 
-    <!--<Button-->
-        <!--android:layout_width="100dp"-->
-        <!--android:layout_height="40dp"-->
-        <!--android:text="@string/btnErase"-->
-        <!--android:id="@+id/erase_button"-->
-        <!--android:layout_below="@+id/listView"-->
-        <!--android:background="@drawable/orange_button_small"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:onClick="clearScores"-->
-        <!--android:enabled="true" />-->
-
-
-
 </RelativeLayout>

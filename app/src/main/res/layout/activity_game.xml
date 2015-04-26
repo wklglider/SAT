@@ -7,155 +7,186 @@
     android:background="#ffffffff"
     android:clickable="true">
 
-    <TextView android:text="@string/timer" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/timer"
-        android:layout_below="@+id/score"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textStyle="bold" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/timer_editText"
-        android:enabled="false"
-        android:hint="@string/timer_hint"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_alignTop="@+id/score"
-        android:layout_toRightOf="@+id/timer"
-        android:layout_toEndOf="@+id/timer"
-        android:background="#ffffffff"
-        android:textColor="#ffff423d" />
-
-    <TextView
-        android:text="@string/score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/score"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/result_editText"
-        android:layout_alignStart="@+id/result_editText"
-        android:textStyle="bold" />
-
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/score_editText"
-        android:hint="@string/score_hint"
-        android:inputType="number"
-        android:textStyle="bold"
-        android:textColor="#ff6376ff"
-        android:enabled="false"
-        android:layout_alignTop="@+id/timer"
-        android:layout_alignRight="@+id/score"
-        android:layout_alignEnd="@+id/score" />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/button_shape1"
-        android:layout_marginLeft="30dp"
-        android:layout_below="@+id/timer_editText"
-        android:layout_toRightOf="@+id/timer"
-        android:layout_toEndOf="@+id/timer" />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/button_shape2"
-        android:layout_above="@+id/button_shape3"
-        android:layout_alignLeft="@+id/button_shape4"
-        android:layout_alignStart="@+id/button_shape4" />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/button_shape3"
-        android:layout_below="@+id/button_shape1"
-        android:layout_alignLeft="@+id/button_shape1"
-        android:layout_alignStart="@+id/button_shape1" />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/button_shape4"
-        android:layout_below="@+id/button_shape2"
-        android:layout_toRightOf="@+id/button_shape1"
-        android:layout_toEndOf="@+id/button_shape1" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/first_shape_textView"
-        android:layout_marginTop="26dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/keyboardview" />
-
-    <ImageView
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:id="@+id/imageView_operator"
-        android:layout_alignTop="@+id/first_shape_textView"
-        android:layout_marginLeft="100dp"
-        android:layout_marginStart="100dp" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/second_shape_textView"
-        android:layout_alignTop="@+id/imageView_operator"
-        android:layout_alignLeft="@+id/button_shape4" />
-
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/result_editText"
-        android:hint="@string/answer"
-        android:gravity="center"
-        android:textSize="15sp"
-        android:layout_alignBottom="@+id/second_shape_textView"
-        android:layout_alignParentRight="true"
-
-        android:textIsSelectable="false" />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:text="@string/home"
-        android:id="@+id/home_button"
-        android:background="@drawable/orange_button_small"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/first_shape_textView"
-        android:layout_alignStart="@+id/first_shape_textView"
-        android:onClick="loadHomePage"
-        android:enabled="true" />
-
-    <!--<Button-->
-        <!--android:layout_width="100dp"-->
-        <!--android:layout_height="40dp"-->
-        <!--android:text="@string/help"-->
-        <!--android:id="@+id/help_button"-->
-        <!--android:layout_alignTop="@+id/home_button"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:layout_alignParentEnd="true"-->
-        <!--android:onClick="loadHelpPage"-->
-        <!--android:enabled="true" />-->
-
-    <android.inputmethodservice.KeyboardView
-        android:id="@+id/keyboardview"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/home_button" />
+        android:layout_height="fill_parent"
+        android:weightSum="1">
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
 
+            <TextView
+                android:text="@string/timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="0dp"
+                android:id="@+id/timer"
+                android:textStyle="bold" />
 
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/timer"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="80dp"
+                android:id="@+id/timer_editText"
+                android:enabled="false"
+                android:hint="@string/timer_hint"
+                android:background="#ffffffff"
+                android:textColor="#ffff423d" />
+
+            <TextView
+                android:text="@string/score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/timer_editText"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:id="@+id/score"
+                android:textStyle="bold" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/score"
+                android:layout_alignParentRight="true"
+                android:id="@+id/score_editText"
+                android:hint="@string/score_hint"
+                android:inputType="number"
+                android:textStyle="bold"
+                android:textColor="#ff6376ff"
+                android:enabled="false"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="110dp"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/button_shape1"
+                android:layout_marginLeft="80dp"/>
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignBottom="@+id/button_shape1"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/button_shape2"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/button_shape3"
+                android:layout_marginLeft="80dp"/>
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignBottom="@+id/button_shape3"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/button_shape4"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="85dp"
+                android:layout_height="35dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginRight="10dp"
+                android:id="@+id/first_shape_textView"
+                android:textStyle="bold"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignBottom="@+id/first_shape_textView"
+                android:layout_alignParentRight="true"
+                android:id="@+id/imageView_operator"
+                android:layout_marginRight="30dp"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:layout_width="85dp"
+                android:layout_height="35dp"
+                android:layout_alignBottom="@+id/imageView_operator"
+                android:layout_alignParentRight="true"
+                android:id="@+id/second_shape_textView"
+                android:textStyle="bold"
+                android:textSize="18sp" />
+
+            <EditText
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_alignBottom="@+id/second_shape_textView"
+                android:layout_alignParentRight="true"
+                android:id="@+id/result_editText"
+                android:hint="@string/answer"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textIsSelectable="false"
+                android:layout_marginRight="10dp"
+                android:focusable="false" />
+        </LinearLayout>
+
+        <android.inputmethodservice.KeyboardView
+            android:id="@+id/keyboardview"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="0.83" />
+
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="28dp"
+            android:text="@string/home"
+            android:id="@+id/home_button"
+            android:background="@drawable/orange_button_small"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="loadHomePage"
+            android:enabled="true"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
 
 </RelativeLayout>

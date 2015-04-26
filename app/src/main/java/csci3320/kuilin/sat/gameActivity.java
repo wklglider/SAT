@@ -348,8 +348,10 @@ public class gameActivity extends ActionBarActivity {
                 else{
                     if(editable.length()<4) {
                         //Enter user's input to response edittext
-                        int start = response.getSelectionStart();
-                        editable.insert(start, Character.toString((char) primaryCode));
+                        if(!response.getText().toString().equals("0")){
+                            int start = response.getSelectionStart();
+                            editable.insert(start, Character.toString((char) primaryCode));
+                        }
                     }
                 }
             }
