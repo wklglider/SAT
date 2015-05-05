@@ -197,6 +197,7 @@ public class GameModel {
                 return operations.get(generator.nextInt(4));
 
         }
+        //return new Operation("divide", R.drawable.divide, "/");
         return null;
     }
 

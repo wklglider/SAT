@@ -1,6 +1,9 @@
 package csci3320.kuilin.sat;
 
+import android.app.AlertDialog;
 import android.app.LauncherActivity;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -72,5 +75,43 @@ public class scoresActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void clearScores(MenuItem mi){
+
+        final DatabaseOperations dbOp = new DatabaseOperations(this);
+
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+        // set title
+        alertDialogBuilder.setTitle("Clear all high scores");
+
+        // set dialog message
+        alertDialogBuilder
+                .setMessage("Are you sure you want to clear all high scores?")
+                .setCancelable(false)
+                .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        //start new game
+                        dbOp.dropTable();
+                        Intent intent = getIntent();
+                        finish();
+                        startActivity(intent);
+
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //Do nothing.
+                    }
+                });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+
     }
 }

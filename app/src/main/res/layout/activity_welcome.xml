@@ -46,7 +46,9 @@
             android:layout_centerHorizontal="true"
             android:autoText="false"
             android:hint="Enter your name"
-            android:layout_marginLeft="50dp" />
+            android:layout_marginLeft="50dp"
+            android:singleLine="true"
+            android:maxLength="15" />
     </LinearLayout>
 
     <LinearLayout
@@ -131,7 +133,8 @@
                     android:id="@+id/operand_radioButton1"
                     android:layout_alignBottom="@+id/operation_level_textView"
                     android:layout_centerHorizontal="true"
-                    android:checked="true" />
+                    android:checked="true"
+                    android:textColor="#ff669900" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -141,7 +144,8 @@
                     android:checked="false"
                     android:layout_below="@+id/operation_radioButton1"
                     android:layout_alignLeft="@+id/operation_radioButton1"
-                    android:layout_alignStart="@+id/operation_radioButton1" />
+                    android:layout_alignStart="@+id/operation_radioButton1"
+                    android:textColor="#ff0099cc" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -151,14 +155,15 @@
                     android:layout_below="@+id/operation_radioButton2"
                     android:layout_alignLeft="@+id/operation_radioButton2"
                     android:layout_alignStart="@+id/operation_radioButton2"
-                    android:checked="false" />
+                    android:checked="false"
+                    android:textColor="#ffcc0000" />
 
             </RadioGroup>
         </LinearLayout>
     </LinearLayout>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="@string/start"
         android:id="@+id/start_button"
@@ -178,7 +183,7 @@
         android:layout_gravity="center_horizontal">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:text="@string/scores"
             android:id="@+id/scores_button"
@@ -192,7 +197,7 @@
             android:layout_marginTop="40dp" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:text="@string/help"
             android:id="@+id/help_button"
@@ -200,8 +205,8 @@
             android:layout_alignBottom="@+id/scores_button"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:onClick="loadHelpPage"
-            android:layout_marginTop="40dp" />
+            android:layout_marginTop="40dp"
+            android:onClick="loadHelpPage" />
     </LinearLayout>
 
 </LinearLayout>

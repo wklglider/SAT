@@ -4,18 +4,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#ffffffff"
     tools:context="csci3320.kuilin.sat.helpActivity"
     android:id="@+id/help_layout">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1.Select operations and operands for various difficulty levels "
-        android:id="@+id/textView"
-        android:layout_below="@+id/textView8"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,28 +20,73 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2.Identify the correct shapes by name and find out the corresponding numbers in the shapes."
-        android:id="@+id/textView5"
+        android:text="@string/helpText"
+        android:id="@+id/textView8"
+        android:textColor="#ffff6a19"
+        android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="18dp"
-        android:layout_below="@+id/textView" />
+        android:layout_marginTop="19dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3.Solve as many problems as you can within one minute.  "
-        android:id="@+id/textView6"
-        android:layout_below="@+id/textView5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="22dp" />
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="#ffff6a19"-->
+        <!--android:text="1.Select operations and operands for various difficulty levels "-->
+        <!--android:id="@+id/textView"-->
+        <!--android:layout_below="@+id/textView8"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_marginTop="20dp" />-->
+
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="2.Identify the correct shapes by name and find out the corresponding numbers in the shapes."-->
+        <!--android:id="@+id/textView5"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_marginTop="18dp"-->
+        <!--android:layout_below="@+id/textView" />-->
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="3.Solve as many problems as you can within one minute.  "-->
+        <!--android:id="@+id/textView6"-->
+        <!--android:layout_below="@+id/textView5"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_marginTop="22dp" />-->
+
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="4.Press HELP to see game rules."-->
+        <!--android:id="@+id/textView3"-->
+        <!--android:layout_below="@+id/textView6"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_marginTop="21dp" />-->
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="5. Press SCORES to see scores history of players"-->
+        <!--android:id="@+id/textView4"-->
+        <!--android:layout_below="@+id/textView3"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_marginTop="22dp" />-->
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="home"
         android:id="@+id/button"
+<<<<<<< HEAD
         android:layout_gravity="bottom"
         android:onClick="loadHomePage"
         android:layout_alignParentBottom="true"
@@ -86,4 +122,12 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="22dp" />
 
+=======
+        android:background="@drawable/orange_button_small"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_gravity="bottom"
+        android:onClick="loadHomePage" />
+>>>>>>> origin/master
 </RelativeLayout>
